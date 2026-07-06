@@ -20,7 +20,7 @@ Create the `.claude/agents/` directory and add all required agent files.
 
 #### Screenshot 1 — Agents folder structure in VS Code
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr1.png)
 
 ---
 
@@ -34,19 +34,19 @@ Analyze the configuration differences between the three agents and demonstrate u
 
 #### 1. Why does the cost optimizer use Haiku instead of Sonnet?
 
-Add your answer here...
+The cost optimizer mainly reads Terraform files and suggests ways to reduce AWS costs. This task does not require deep reasoning, so Haiku is a good choice because it is faster and less expensive to run. It helps keep the overall cost of using the agent low.
 
 ---
 
 #### 2. Why does the security auditor NOT have Write in its tools list?
 
-Add your answer here...
+The security auditor is designed to review code and identify security issues, not to change files automatically. By not having the Write tool, it cannot accidentally modify the infrastructure. This makes the review process safer and lets the developer decide how to apply the recommended fixes.
 
 ---
 
 #### 3. Why does the tf-writer use `inherit` instead of a specific model?
 
-Add your answer here...
+The tf-writer uses inherit so it automatically uses the same model as the main Claude session. This makes it flexible because it can benefit from whichever model is currently being used, without needing to update the agent configuration every time a new model becomes available.
 
 ---
 
@@ -54,13 +54,14 @@ Add your answer here...
 
 #### Screenshot 2 — security-auditor.md frontmatter
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr2.png)
+
 
 ---
 
 #### Screenshot 3 — cost-optimizer.md frontmatter
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr3.png)
 
 ---
 
@@ -74,13 +75,12 @@ Trigger the security auditor agent and analyze the generated security report for
 
 #### Screenshot 4 — Security auditor delegation triggered
 
-Add your screenshot here.
-
+![screenshot-4](screenshots/gideon-omole-as4-scr4.png)
 ---
 
 #### Screenshot 5 — Security audit report output
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as4-scr5.png)
 
 ---
 
@@ -94,7 +94,7 @@ Trigger the cost optimizer agent and review the generated cost optimization repo
 
 #### Screenshot 6 — Cost optimization report output
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as4-scr6.png)
 
 ---
 
@@ -111,7 +111,7 @@ Add your screenshot here.
 
 Paste your Google Doc URL here:
 
-`__________________________`
+`https://docs.google.com/document/d/1YJkgR6r_GvzmgTjiEZE-tav6_uYkUFk3LalTrXvrjL0/edit?usp=sharing`
 
 ---
 
@@ -119,7 +119,7 @@ Paste your Google Doc URL here:
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/Gideon-Omole/Ultimate-Agentic-DevOps-with-Claude-Code.git`
 
 ---
 
