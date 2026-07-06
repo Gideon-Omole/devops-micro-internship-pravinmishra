@@ -20,7 +20,7 @@ Create the required `.claude/skills/` directory structure for all skills.
 
 #### Screenshot 1 — Skills folder structure in VS Code
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as3-scr1.png)
 
 ---
 
@@ -34,13 +34,15 @@ Place all required skill files into their correct directories and verify their c
 
 #### Screenshot 2 — scaffold-terraform skill folder contents
 
-Add your screenshot here.
+![screenshot-2.1](screenshots/gideon-omole-as3-scr2.1.png)
+![screenshot-2.2](screenshots/gideon-omole-as3-scr2.2.png)
+
 
 ---
 
 #### Screenshot 3 — tf-plan/SKILL.md showing allowed-tools restrictions
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as3-scr3.png)
 
 ---
 
@@ -54,13 +56,13 @@ Execute the `/scaffold-terraform` skill to generate a full Terraform infrastruct
 
 #### Screenshot 4 — Claude scaffold execution result
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as3-scr4.png)
 
 ---
 
 #### Screenshot 5 — Generated terraform/ folder with all files
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as3-scr5.png)
 
 ---
 
@@ -74,7 +76,7 @@ Initialize Terraform and execute the `/tf-plan` skill to observe plan execution 
 
 #### Screenshot 6 — /tf-plan execution and Claude analysis output
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as3-scr6.png)
 
 ---
 
@@ -90,7 +92,7 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/Gideon-Omole/Ultimate-Agentic-DevOps-with-Claude-Code.git`
 
 ---
 

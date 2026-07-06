@@ -283,7 +283,7 @@ Choose books that improve:
 
 7. How Not to Die
 
-![screenshot](./screenshots/gideon-omole-1_How-Not-To-Die_Michael-Greger_Way-back-to-you-scaled.jpg)
+![screenshot](./screenshots/gideon-omole-How-Not-To-Die_Michael-Greger_Way-back-to-you-scaled.jpg)
 
 8. High Output Management
 

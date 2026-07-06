@@ -20,7 +20,7 @@ Capture Claude’s response before `CLAUDE.md` exists in the project to establis
 
 #### Screenshot 1 — Claude response before CLAUDE.md
 
-Add your screenshot here.
+![assignment-2-screenshot](./screenshots/gideon-omole-assignment-02-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Generate an initial `CLAUDE.md` file using the `/init` command and review the au
 
 #### Screenshot 2 — Auto-generated CLAUDE.md
 
-Add your screenshot here.
+![assignment-2-screenshot](./screenshots/gideon-omole-as2-scr2.png)
 
 ---
 
@@ -48,7 +48,8 @@ Update the generated `CLAUDE.md` file by adding project-specific instructions ac
 
 #### Screenshot 3 — Customized CLAUDE.md (all 5 sections visible)
 
-Add your screenshot here.
+![assignment-2-screenshot](./screenshots/gideon-omole-as2-scr3-1.png)
+![assignment-2-screenshot](./screenshots/gideon-omole-as2-scr3-2.png)
 
 ---
 
@@ -62,13 +63,13 @@ Verify that Claude’s behavior changes after adding `CLAUDE.md` by running a ne
 
 #### Screenshot 4 — Claude response with project-specific deployment details
 
-Add your screenshot here.
+![assignment-2-screenshot-4](./screenshots/gideon-omole-as2-scr4.png)
 
 ---
 
 #### Screenshot 5 — Claude response rejecting React/component change based on rules
 
-Add your screenshot here.
+![assignment-2-screenshot-5](./screenshots/gideon-omole-as2-scr5.png)
 
 ---
 
@@ -84,7 +85,7 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/Gideon-Omole/Ultimate-Agentic-DevOps-with-Claude-Code`
 
 ---
 
