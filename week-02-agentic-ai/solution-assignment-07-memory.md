@@ -20,7 +20,7 @@ Discover exactly where Claude Code stores memory for this project.
 
 #### Screenshot 1 — Memory file path shown by Claude
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as7-scr1.png)
 
 ---
 
@@ -34,13 +34,12 @@ Teach Claude three specific facts about the project and instruct it to save them
 
 #### Screenshot 2 — Claude confirming the memory was saved
 
-Add your screenshot here.
-
+![screenshot-2](screenshots/gideon-omole-as7-scr2.png)
 ---
 
 #### Screenshot 3 — The `MEMORY.md` file open in VS Code showing the saved content
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as7-scr3.png)
 
 ---
 
@@ -54,7 +53,7 @@ Terminate the current Claude Code session and restart it to ensure memory is the
 
 #### Screenshot 4 — VS Code reopened with a fresh Claude Code session showing no previous conversation
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as7-scr4.png)
 
 ---
 
@@ -68,13 +67,13 @@ Run three tests that prove Claude remembers what you told it — without you say
 
 #### Screenshot 5 — Claude recalling hero section colors
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as7-scr5.png)
 
 ---
 
 #### Screenshot 6 — Claude refusing JavaScript request based on memory rule
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as7-scr6.png)
 
 ---
 
@@ -91,7 +90,7 @@ Add your screenshot here.
 
 Paste your Linkedin post link here:
 
-`__________________________`
+`https://lnkd.in/p/eQqpQG5Z`
 
 ---
 
@@ -99,7 +98,7 @@ Paste your Linkedin post link here:
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/Gideon-Omole/Ultimate-Agentic-DevOps-with-Claude-Code`
 
 ---
 

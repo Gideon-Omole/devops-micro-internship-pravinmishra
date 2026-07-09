@@ -46,7 +46,7 @@ You can publish your blog on:
 
 #### Screenshot 1 — Blog published and visible
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as8-scr1.png)
 
 ---
 
@@ -54,7 +54,7 @@ Add your screenshot here.
 
 Blog Link:
 
-`__________________________________________`
+`https://medium.com/@gideonomole9/reflection-week-2-f6dc0f6fd799`
 
 ---
 
@@ -92,7 +92,7 @@ P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by 
 
 #### Screenshot 2 — LinkedIn post published
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as8-scr2.png)
 
 ---
 
@@ -101,14 +101,28 @@ Add your screenshot here.
 LinkedIn Post Content (copy-paste here):
 
 ```
-Paste your LinkedIn post content here
+Week 2 of the DevOps Micro Internship taught me something I didn't expect: AI agents can do a LOT of the heavy lifting in DevOps if you know how to guide them.
+
+This week I used Claude Code to generate a full set of Terraform files for deploying a website to AWS (S3 + CloudFront) provider setup, variables, core infrastructure, outputs, and backend config. What used to take hours of repetitive manual setup happened in minutes, because I could just describe what I needed and review the result.
+
+Along the way, I got hands-on with a whole set of capabilities that make this kind of AI-assisted DevOps actually reliable: MCP servers for connecting the AI agent to real external tools like GitHub, Skills for teaching it repeatable project-specific workflows, Hooks for automatically logging and validating actions as they happen, and Permissions for controlling exactly what the agent is and isn't allowed to touch. 
+
+Together, these are what turn a simple AI agent into something you can trust to work inside real infrastructure and automation, safely and predictably.
+
+The real learning wasn't "AI writes code for me." It was learning how to work with an AI agent giving it the right context, checking its output carefully, and understanding the tools that let it work reliably inside a real project.
+
+Excited to keep building in Week 3.
+
+P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by Pravin Mishra. You can start your DevOps journey by joining this Discord community (https://lnkd.in/eX_G3Ea7).
+
+#DMIByPravinMishra #AgenticAI #ClaudeCode #DevOps #LearningInPublic
 ```
 
 ---
 
 ### LinkedIn Post Link:
 
-`__________________________________________`
+`https://lnkd.in/p/eQqpQG5Z`
 
 ---
 
