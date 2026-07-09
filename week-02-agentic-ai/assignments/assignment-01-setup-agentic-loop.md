@@ -80,7 +80,7 @@ claude
 
 **Screenshots Required:**
 - Screenshot 1 — Terminal showing `claude --version` with the version number visible
-- Screenshot 2 — Claude Code authenticated and showing the terminal prompt (your name visible)
+- Screenshot 2 — Claude Code authenticated and showing the terminal prompt 
 
 ---
 
@@ -101,7 +101,7 @@ cd REPO_NAME
 code .
 ```
 
-**Expected Output:** VS Code opens showing `index.html`, `style.css`, and the `images/` folder in the sidebar. No `.claude/` directory exists yet.
+**Expected Output:** VS Code opens showing `index.html`, `style.css`, and the `images/` folder in the sidebar. No `.claude/` directory exists yet. (Remove the .claude folder, CLAUDE.md, and .github folder if they exist.)
 
 **Screenshots Required:**
 - Screenshot 3 — VS Code with the project open, file tree visible showing `index.html`, `style.css`, `images/`
@@ -153,7 +153,9 @@ Your submission must include:
 
 ## 10. Solution Walkthrough
 
-A step-by-step solution and troubleshooting guide will be provided.
+A step-by-step solution and troubleshooting guide is available for reference:
+Full solution walkthrough → [Click here](../Solutions_walkthrough/assignment-01-setup-agentic-loop.md)
+
 
 ---
 

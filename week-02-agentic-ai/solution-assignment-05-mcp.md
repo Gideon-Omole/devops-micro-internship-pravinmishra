@@ -18,9 +18,11 @@ Generate a GitHub Personal Access Token (PAT) that will be used for MCP authenti
 
 ### Evidence
 
-#### Screenshot 1 — GitHub token creation (scopes only)
+#### Screenshot 1 — GitHub token creation page showing the selected scopes (`repo`, `read:user`) — token value must NOT be visible
 
-Add your screenshot here.
+![Screenshot-1](screenshots/gideon-omole-as5-scr1.1.png)
+![Screenshot-1](screenshots/gideon-omole-as5-scr1.2.png)
+
 
 ---
 
@@ -32,9 +34,9 @@ Create and configure the `.mcp.json` file to define the GitHub MCP server.
 
 ### Evidence
 
-#### Screenshot 2 — .mcp.json configuration in VS Code
+#### Screenshot 2 — `.mcp.json` open in VS Code showing the full configuration
 
-Add your screenshot here.
+![Screenshot-2](screenshots/gideon-omole-as5-scr2.png)
 
 ---
 
@@ -46,9 +48,9 @@ Store your GitHub token securely in `.claude/settings.local.json` and ensure it 
 
 ### Evidence
 
-#### Screenshot 3 — settings.local.json (token hidden/blurred)
+#### Screenshot 3 — `settings.local.json` open in VS Code showing the `env` section — **blur or cover the actual GitHub token value**
 
-Add your screenshot here.
+![Screenshot-3](screenshots/gideon-omole-as5-scr3.png)
 
 ---
 
@@ -60,9 +62,9 @@ Confirm that the GitHub MCP server is successfully connected inside Claude Code.
 
 ### Evidence
 
-#### Screenshot 4 — /mcp output showing GitHub connected
+#### Screenshot 4 — `/mcp` output showing `github: connected`
 
-Add your screenshot here.
+![Screenshot-4](screenshots/gideon-omole-as5-scr4.png)
 
 ---
 
@@ -74,10 +76,9 @@ Verify MCP functionality by retrieving real-time data from your GitHub account u
 
 ### Evidence
 
-#### Screenshot 5 — Claude response showing real GitHub repositories
+#### Screenshot 5 — Claude's response showing the GitHub MCP tool call and the retrieved README.md content.
 
-Add your screenshot here.
-
+![screenshot-5](screenshots/gideon-omole-as5-scr5.png)
 ---
 
 # Submission Instructions
@@ -94,7 +95,7 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/Gideon-Omole/Ultimate-Agentic-DevOps-with-Claude-Code`
 
 ---
 

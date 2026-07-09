@@ -18,11 +18,9 @@ Create a team-level `settings.json` file with allow and deny rules for safe comm
 
 ### Evidence
 
-#### Screenshot 1 — settings.json permissions configuration
+#### Screenshot 1 — Screenshot 1 — `settings.json` open in VS Code showing the full permissions configuration
 
-Add your screenshot here.
-
----
+![screenshot-5](screenshots/gideon-omole-as6-scr1.png)
 
 # Task 2 — Add the UserPromptSubmit Hook
 
@@ -34,7 +32,7 @@ Add a hook that intercepts user prompts before Claude starts execution and block
 
 #### Screenshot 2 — settings.json showing UserPromptSubmit hook
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as6-scr-2.png)
 
 ---
 
@@ -48,7 +46,7 @@ Extend `settings.json` with a PreToolUse hook that blocks dangerous Bash command
 
 #### Screenshot 3 — full settings.json with permissions and hooks
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as6-scr-3.png)
 
 ---
 
@@ -62,7 +60,7 @@ Verify that destructive prompts are blocked before Claude begins execution.
 
 #### Screenshot 4 — blocked prompt due to UserPromptSubmit hook
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as6-scr4.png)
 
 ---
 
@@ -76,7 +74,7 @@ Verify that dangerous commands are intercepted before execution by the PreToolUs
 
 #### Screenshot 5 — PreToolUse hook blocking terraform destroy
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as6-scr5.png)
 
 ---
 
@@ -92,7 +90,7 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/Gideon-Omole/Ultimate-Agentic-DevOps-with-Claude-Code`
 
 ---
 
