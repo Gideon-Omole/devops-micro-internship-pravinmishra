@@ -20,19 +20,22 @@ Demonstrate understanding of AWS basics and Free Tier usage by answering the fol
 
 #### Question 1 — What is an AWS account, and why do you need it at this stage?
 
-Write your answer here.
+An AWS account is basically your personal identity and billing container within Amazon's cloud platform. It's what ties together everything you spin up, from storage buckets to virtual servers, under one login and one payment method. For EpicReads, we need this at the start because every single AWS resource (compute, storage, databases, etc.) has to live inside an account; there's no way to provision anything without it. It's the foundation everything else in the migration gets built on top of.
 
 ---
 
 #### Question 2 — What is AWS Free Tier, and how long does it last?
 
-Write your answer here.
+AWS Free Tier is Amazon's way of letting new users try out their services without paying anything upfront, so you can experiment and build small projects risk-free. It's actually split into three types: some offerings are free for 6 months after signup, some are "always free" up to a certain usage cap (even after the 6 months ends), and a few are short-term trials tied to a specific service. For EpicReads' onboarding, the 6-month clock is the one that matters most since that's when we'll be doing the bulk of our early testing.
 
 ---
 
 #### Question 3 — Name three AWS Free Tier services and their free usage limits.
 
-Write your answer here.
+A few good examples: Amazon EC2 gives you 750 hours per month of a t2.micro or t3.micro instance, which is enough to keep a small server running continuously for testing. 
+Amazon S3 offers 5GB of standard storage plus a set number of GET/PUT requests each month, handy for hosting static assets like book cover images.  
+Amazon RDS provides 750 hours per month of a db.t2.micro or db.t3.micro database instance along with 20GB of storage, which would work fine for a lightweight version of EpicReads' catalog database while we're prototyping.
+
 
 ---
 
@@ -56,7 +59,7 @@ Confirm that your AWS account setup is complete by navigating to the Account sec
 
 #### Screenshot 1 — AWS Account page showing account name (email may be blurred)
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as1-scr1.png)
 
 ---
 
