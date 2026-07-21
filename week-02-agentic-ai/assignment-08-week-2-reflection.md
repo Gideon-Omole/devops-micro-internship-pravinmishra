@@ -126,11 +126,7 @@ P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by 
 
 ### LinkedIn Post Link:
 
-<<<<<<< HEAD
 `https://lnkd.in/p/eQqpQG5Z`
-=======
-`Add your URL here`
->>>>>>> upstream/main
 
 ---
 

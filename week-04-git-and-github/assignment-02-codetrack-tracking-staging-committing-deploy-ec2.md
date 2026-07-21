@@ -20,13 +20,13 @@ Confirm that Git works and that you are inside the correct `CodeTrack` repositor
 
 #### Screenshot 1 — Output of `pwd` showing you're inside `CodeTrack`
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as2-scr1.png)
 
 ---
 
 #### Screenshot 2 — Output of `git status` showing no "not a git repository" error
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as2-scr2.png)
 
 ---
 
@@ -40,7 +40,7 @@ Create the two starter UI files inside `CodeTrack`.
 
 #### Screenshot 3 — Output of `ls` showing `index.html` and `style.css`
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as2-scr3.png)
 
 ---
 
@@ -54,7 +54,8 @@ Copy the provided starter HTML and CSS content into your local `index.html` and 
 
 #### Screenshot 4 — Your editor showing the contents of `index.html` and `style.css`
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as2-scr4.png)
+![screenshot-4.1](screenshots/gideon-omole-as2-scr4.1.png)
 
 ---
 
@@ -68,14 +69,12 @@ Confirm both files show as untracked, then stage them individually with `git add
 
 #### Screenshot 5 — Output of `git status` showing both files as untracked
 
-Add your screenshot here.
-
+![screenshot-5](screenshots/gideon-omole-as2-scr5.png)
 ---
 
 #### Screenshot 6 — Output of `git status` showing both files staged under "Changes to be committed"
 
-Add your screenshot here.
-
+![screenshot-6](screenshots/gideon-omole-as2-scr6.png)
 ---
 
 # Task 5 — Create the First Commit (Clean Initial Commit)
@@ -88,13 +87,13 @@ Commit the staged starter files using the message `Initial UI scaffold: add inde
 
 #### Screenshot 7 — Output of `git commit`
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as2-scr7.png)
 
 ---
 
 #### Screenshot 8 — Output of `git log --oneline` showing the first commit
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as2-scr8.png)
 
 ---
 
@@ -108,25 +107,25 @@ Follow the instruction comment inside `index.html` to update the Student Name an
 
 #### Screenshot 9 — Browser showing the updated page with your Student Name and Group Name visible
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as2-scr9.png)
 
 ---
 
 #### Screenshot 10 — Output of `git status` showing `index.html` as modified
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as2-scr10.png)
 
 ---
 
 #### Screenshot 11 — Output of `git commit`
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as2-scr11.png)
 
 ---
 
 #### Screenshot 12 — Output of `git log --oneline` showing two commits
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as2-scr12.png)
 
 ---
 
@@ -140,19 +139,17 @@ Install and start Nginx on your EC2 instance, then copy `index.html` and `style.
 
 #### Screenshot 13 — Output of `systemctl status nginx --no-pager` showing Nginx `active (running)`
 
-Add your screenshot here.
-
+![screenshot-13](screenshots/gideon-omole-as2-scr13.png)
 ---
 
 #### Screenshot 14 — Output of `curl -I http://localhost` showing `HTTP/1.1 200 OK`
 
-Add your screenshot here.
-
+![screenshot-14](screenshots/gideon-omole-as2-scr14.png)
 ---
 
 #### Screenshot 15 — Browser showing the CodeTrack site loaded at `http://<EC2_PUBLIC_IP>`, with your Full Name and Group Name visible
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as2-scr15.png)
 
 ---
 
@@ -164,13 +161,13 @@ Add your screenshot here.
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_clean-commit-history-isnt-just-a-nice-to-have-share-7485093500385107968-fUzy/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
 #### Screenshot — LinkedIn post showing the deployed CodeTrack application
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as2-scr16.png)
 
 ---
 
