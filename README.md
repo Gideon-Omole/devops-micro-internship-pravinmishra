@@ -79,8 +79,8 @@ Week 02 → Agentic AI with Claude Code
 Week 03 → Linux & Bash for DevOps
 [![Week 03 – Linux & Bash](./badges/week-03.svg)](./week-03-linux-and-bash-for-devops/) 
 
-<!-- Week 04 → Git & GitHub -->
-<!-- [![Week 04 – Git](./badges/week-04.svg)](./week-04-github/) -->
+Week 04 → Git & GitHub 
+[![Week 04 – Git](./badges/week-04.svg)](./week-04-github/) 
 
 <!-- Week 05 → DevOps Lifecycle & Agile -->
 <!-- [![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/) -->
@@ -134,8 +134,8 @@ Week 03 → Linux & Bash for DevOps
 | 01 | Success Mindset | ✅ Completed | ✅ Completed | - | https://medium.com/@gideonomole9/the-engineer-who-turned-curiosity-into-a-career-in-devops-4186f84bf75a |
 | 02 | Agentic AI with Claude Code | ✅ Completed |  | https://lnkd.in/p/eQqpQG5Z  | https://medium.com/@gideonomole9/reflection-week-2-f6dc0f6fd799 |
 | 03 | Linux for DevOps | ✅ Completed | ✅ Completed | https://www.linkedin.com/posts/gideon-omole-5ba318180_dmibypravinmishra-linux-bash-activity-7483963700379459585-BGlV?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/from-infrastructure-basics-to-ai-assisted-incident-response-f424de7504e1?sharedUserId=gideonomole9 |
-| 04 | Bash Scripting | ⬜ Not Started | ⏳ Pending | — | — |
-| 05 | Git & GitHub | ⬜ Not Started | ⏳ Pending | — | — |
+| 04 | Bash Scripting | ✅ Completed | ✅ Completed | https://www.linkedin.com/posts/gideon-omole-5ba318180_dmibypravinmishra-linux-bash-ugcPost-7483963699251093504-fb35/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/from-infrastructure-basics-to-ai-assisted-incident-response-f424de7504e1 |
+| 05 | Git & GitHub | ✅ Completed  | ✅ Completed  | https://www.linkedin.com/posts/gideon-omole-5ba318180_dmi-devops-micro-internship-with-agentic-share-7486189568262569984-Kaxs/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/from-local-commits-to-ai-assisted-pull-requests-a-week-inside-git-and-github-9f17fe7cf4e5 |
 | 06 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
 | 07 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
