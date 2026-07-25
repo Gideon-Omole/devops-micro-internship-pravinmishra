@@ -54,11 +54,7 @@ You can publish your blog on:
 
 Blog Link:
 
-<<<<<<< HEAD
 `https://medium.com/@gideonomole9/reflection-week-2-f6dc0f6fd799`
-=======
-`Add your URL here`
->>>>>>> upstream/main
 
 ---
 
@@ -126,7 +122,7 @@ P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by 
 
 ### LinkedIn Post Link:
 
-`https://lnkd.in/p/eQqpQG5Z`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_dmibypravinmishra-agenticai-claudecode-share-7481056104832086016-yJaI/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
