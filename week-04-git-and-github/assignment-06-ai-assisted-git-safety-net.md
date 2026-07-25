@@ -59,7 +59,7 @@ On your own fork of this repository (the one you've been submitting your DMI wor
 
 **1. Why does this assignment use an obviously fake key instead of a real one?**
 
-Add your answer here.
+Using a real AWS key would be risky, even for practice. If a real key ended up in a public repo, anyone could find and use it, and simply deleting it later would not remove it from Git history. A fake key that still matches the AKIA pattern lets the pre commit hook and /pr-ready properly detect and block it, without any real risk of leaking an actual credential.
 
 ---
 
