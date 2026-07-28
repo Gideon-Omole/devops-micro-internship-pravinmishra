@@ -34,7 +34,7 @@ Replace `task-1-chatgpt.png` with your actual screenshot file name.
 
 ## What I Learned (2–3 lines)
 
-Add your answer here...
+A protocol is essentially a shared set of rules that lets two computers understand each other, just like people follow rules in a conversation (e.g., saying "hello," waiting your turn to speak). This analogy made it click for me — without agreed-upon rules, messages could get sent but never properly understood. I also learned that a well-structured prompt (asking for a definition, an analogy, and a "why it matters" section) makes ChatGPT's answers much easier to follow as a beginner.
 
 ---
 
@@ -59,7 +59,9 @@ Write a short explanation (**100–150 words**) that includes:
 
 ## Answer
 
-Add your answer here...
+When a customer globally visits EpicReads, their browser uses HTTP/HTTPS to securely request your website's data. To find your server in Finland, the internet uses your site's unique IP Address, which acts just like a digital mailing address.
+Once connected, TCP/IP takes over to manage the delivery. Instead of sending your website’s data all at once, the network uses Packet Switching. This breaks the data down into tiny, manageable pieces called packets. These packets travel across the global web of undersea cables and routers via the fastest available paths.
+Once they arrive at the customer's device, TCP/IP ensures no data was lost and pieces them back together. In a fraction of a second, your bookstore's homepage seamlessly loads on their screen!
 
 ---
 
@@ -91,7 +93,7 @@ EpicReads bookstore has two application versions:
 
 Save your diagram image in the `screenshots` folder and update the file name below.
 
-![Application Architecture Diagram](screenshots/task-3-diagram.png)
+![Application Architecture Diagram](screenshots/three-tier-architecture-diagram-clean.png)
 
 
 Replace `task-3-diagram.png` with your actual diagram file name.
@@ -102,18 +104,18 @@ Replace `task-3-diagram.png` with your actual diagram file name.
 
 ### Frontend
 
-* Add your answer here...
-* Add your answer here...
+* HTML / CSS / JavaScript (The core building blocks of the web)
+* React or Angular (Modern frontend frameworks)
 
 ### Backend
 
-* Add your answer here...
-* Add your answer here...
+* Node.js (JavaScript/TypeScript)
+* Python (Django / Fastapi) or Java (Spring Boot)
 
 ### Database
 
-* Add your answer here...
-* Add your answer here...
+* PostgreSQL or MySQL (Relational databases)
+* MongoDB (NoSQL database)
 
 ---
 
@@ -142,7 +144,8 @@ In **50–100 words**, explain in your own words:
 
 ## Answer
 
-Add your answer here...
+Think of DNS (Domain Name System) as the phonebook of the internet. Computers only understand numbers like your IP address (52.172.142.222), but humans remember names like epicreads.com. DNS maps those user-friendly domain names directly to the correct server IP.
+To connect your domain, you need to configure an A Record (Address Record) in your DNS settings. You use an A Record because its sole purpose is to map a domain name directly to a static IPv4 address. Once configured, typing your domain points traffic straight to your server.
 
 ---
 
@@ -178,7 +181,7 @@ ls
 
 Save your screenshot in the `screenshots` folder and update the file name below.
 
-![VS Code Setup Screenshot](screenshots/task-5-vscode.png)
+![VS Code Setup Screenshot](screenshots/gideon-omole-task-5.png)
 
 
 Replace `task-5-vscode.png` with your actual screenshot file name.
@@ -218,7 +221,7 @@ Add the following credit note at the end of your post:
 Paste your LinkedIn post URL here:
 
 ```text
-Add your URL here...
+https://www.linkedin.com/posts/gideon-omole-5ba318180_devops-cloudengineering-continuouslearning-activity-7474107917202358272-EnII?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4
 ```
 
 ---
@@ -227,7 +230,25 @@ Add your URL here...
 
 Paste the full text of your LinkedIn post here:
 
-Add your post content here...
+Just wrapped up week zero of my DevOps deep-dive!
+
+I’ve been spending the last few days breaking down how the internet, applications, and local dev environments actually work under the hood. It’s one thing to use these tools daily, but mapping out the mechanics has been eye-opening.
+
+Here’s a quick recap of what I tackled:
+AI Learning: Practiced writing targeted prompts to turn ChatGPT into a personal tutor, breaking down complex networking concepts with simple, real-world analogies.
+
+Networking: Mapped out how global users access a remote server using HTTP/HTTPS, DNS, and TCP/IP with Packet Switching to securely slice, route, and reassemble data in milliseconds.
+
+App Architecture: Drew out the structural differences between 2-Tier and 3-Tier setups, tracking data flow from Frontend (React) through Backend (Node.js/Python) to the Database (PostgreSQL/MongoDB).
+
+DNS: Covered the internet's phonebook, using an A Record to point a human-readable domain straight to a raw IPv4 address.
+
+Dev Environment: Optimized my VS Code setup with essential extensions and terminal integrations to keep my workflow fast and clean.
+Excited to keep building on this foundation as we move into cloud infrastructure and automation! 
+hashtag#DevOps hashtag#CloudEngineering hashtag#ContinuousLearning hashtag#TechJourney hashtag#Networking
+
+P.S. This post is part of the DevOps Micro Internship (DMI) Cohort 3 run by Pravin Mishra. You can be part of this learning community too. 
+JOIN HERE (https://lnkd.in/eX_G3Ea7 ) DMI Cohort 3: https://lnkd.in/e8VkY826
 
 ---
 
@@ -235,19 +256,19 @@ Add your post content here...
 
 ### What did you find easy?
 
-Add your answer here...
+Writing clear prompts for ChatGPT and understanding the DNS and networking concepts felt straightforward once I connected them to real-life analogies. Drawing the two-tier and three-tier architecture diagrams was also simple since the layers are logical and easy to visualize.
 
 ---
 
 ### What was difficult?
 
-Add your answer here...
+Explaining packet switching and TCP/IP in a short, clear way without getting too technical was a bit challenging. I also found it tricky to summarize five different tasks into one concise, engaging LinkedIn post.
 
 ---
 
 ### What will you improve next week?
 
-Add your answer here...
+I want to go deeper into hands-on practice rather than just theory — actually setting up a simple server or deploying a basic app. I'll also try to write my explanations more concisely and practice using the VS Code terminal more confidently.
 
 ---
 
