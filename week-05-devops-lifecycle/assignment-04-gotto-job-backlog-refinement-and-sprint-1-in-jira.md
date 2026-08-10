@@ -20,7 +20,7 @@ Choose Team Mode or Solo Mode, and document how each Scrum role (Product Owner, 
 
 #### Screenshot 1 — Jira "Create project" screen, or the project sidebar after creation
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr1.png)
 
 ---
 
@@ -28,7 +28,11 @@ Add your screenshot here.
 
 Write one line for each role: PO (what you prioritized), SM (how you ensured process), Dev Lead (what you built), DevOps Lead (how you shipped).
 
-Write your answer here.
+PO (Product Owner): Responsible for deciding what has the most value and should be prioritized in the backlog — in Solo Mode, this means personally ranking the Stories by business/user value in Task 4.
+SM (Scrum Master): Responsible for ensuring the process is followed correctly — timeboxing, sprint ceremonies (planning, retro), and keeping the team (or yourself) accountable to Scrum practices.
+Dev Lead: Responsible for what gets built — the actual implementation of the chosen UI Story in Task 8.
+DevOps Lead: Responsible for how it gets shipped — committing, deploying, and verifying the change is live.
+
 
 ---
 
@@ -42,7 +46,7 @@ Create a Team-managed Scrum project named `Gotto Job – Team <#>` (Team Mode) o
 
 #### Screenshot 2 — Project created page showing the project name and key
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr1.png)
 
 ---
 
@@ -56,7 +60,7 @@ Create the Epic `Improve Gotto Job UI discoverability & trust` to group the UI i
 
 #### Screenshot 3 — Backlog showing the Epic panel with the Epic visible
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as4-scr3.png)
 
 ---
 
@@ -70,13 +74,13 @@ Create at least six Stories under the Epic, estimate each with 1, 2, or 3 story 
 
 #### Screenshot 4 — Backlog showing the Epic and at least six Stories under it
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as4-scr4.png)
 
 ---
 
 #### Screenshot 5 — One Story opened showing its Story Points and acceptance criteria filled in
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as4-scr5.png)
 
 ---
 
@@ -90,7 +94,7 @@ Confirm the Story Points (1, 2, or 3) for each Story and record brief reasoning 
 
 #### Screenshot 6 — Backlog showing Story Points visible, or two or three Stories opened showing their points
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as4-scr6.png)
 
 ---
 
@@ -98,7 +102,17 @@ Add your screenshot here.
 
 For each story, explain in one or two lines why it is a 1, 2, or 3 (mention any debate, even in Solo Mode).
 
-Write your answer here.
+**Hero tagline clarity (1 pt)** — A single static text swap on one element; no layout logic or conditional states to handle, so it's about as small as a UI change gets.
+
+**Primary CTA color (1 pt)** — Just a color/style value change applied via CSS; even though it's "site-wide," it's one property touched consistently, with no new markup or logic.
+
+**Job card typography (2 pts)** — Involves adjusting font-size/weight and checking it renders well across multiple card instances and possibly breakpoints, so slightly more verification than a 1-pointer.
+
+**Remote badge (UI-only) (2 pts)** — Requires conditional logic (only show on cards flagged REMOTE) plus new markup/styling for the pill, so there's a bit more to build and test than a plain style tweak.
+
+**Posted on <date> text (1 pt)** — Adding static, human-readable text to a card template is straightforward with no conditional logic, keeping it small.
+
+**Advanced search labels (2 pts)** — Touches multiple fields (Location, Type, Salary Range) that each need clear labels/placeholders and alignment checked, so it's a few small edits bundled together rather than one isolated change.
 
 ---
 
@@ -112,13 +126,13 @@ Create Sprint 1, move three or four Stories into it (approximately 3–6 points)
 
 #### Screenshot 7 — Sprint 1 with the selected Stories inside it
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as4-scr7.png)
 
 ---
 
 #### Screenshot 8 — One Story showing the Sub-tasks created
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as4-scr8.png)
 
 ---
 
@@ -132,7 +146,7 @@ Open the Burndown Chart and confirm it exists for Sprint 1. It is acceptable if 
 
 #### Screenshot 9 — Burndown Chart page opened, even if empty
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as4-scr9.png)
 
 ---
 
@@ -146,19 +160,19 @@ Implement one small UI-only Story from Sprint 1, commit it, deploy it live, and 
 
 #### Screenshot 10 — Jira board showing the Story moved to Done
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as4-scr10.png)
 
 ---
 
 #### Screenshot 11 — Git commit output
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as4-scr11.png)
 
 ---
 
 #### Screenshot 12 — Live URL in the browser showing the UI change, with the URL visible
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as4-scr12.png)
 
 ---
 
@@ -172,7 +186,7 @@ Add a retro comment covering what went well, what to improve, one Scrum pillar o
 
 #### Screenshot 13 — Jira retro comment visible
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as4-scr13.png)
 
 ---
 
@@ -188,13 +202,13 @@ Publish a LinkedIn post about what you delivered, including your live URL, three
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/feed/update/urn:li:ugcPost:7492683883314880513/`
 
 ---
 
 #### Screenshot 14 — Published LinkedIn post
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as4-scr14.png)
 
 ---
 

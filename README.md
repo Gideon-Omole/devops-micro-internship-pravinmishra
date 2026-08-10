@@ -82,8 +82,8 @@ Week 03 → Linux & Bash for DevOps
 Week 04 → Git & GitHub 
 [![Week 04 – Git](./badges/week-04.svg)](./week-04-github/) 
 
-<!-- Week 05 → DevOps Lifecycle & Agile -->
-<!-- [![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/) -->
+Week 05 → DevOps Lifecycle & Agile
+[![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/) 
 
 <!-- Week 06 → AWS Cloud -->
 <!-- [![Week 06 – AWS](./badges/week-06.svg)](./week-06-aws-cloud/) -->
@@ -135,7 +135,7 @@ Week 04 → Git & GitHub
 | 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Completed | https://www.linkedin.com/posts/gideon-omole-5ba318180_dmibypravinmishra-agenticai-claudecode-share-7481056104832086016-yJaI/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4  | https://medium.com/@gideonomole9/reflection-week-2-f6dc0f6fd799 |
 | 03 | Linux & Bash for DevOps | ✅ Completed | ✅ Completed | https://www.linkedin.com/posts/gideon-omole-5ba318180_dmibypravinmishra-linux-bash-activity-7483963700379459585-BGlV?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/from-infrastructure-basics-to-ai-assisted-incident-response-f424de7504e1?sharedUserId=gideonomole9 |
 | 04 | Git & GitHub | ✅ Completed  | ✅ Completed  | https://www.linkedin.com/posts/gideon-omole-5ba318180_dmi-devops-micro-internship-with-agentic-share-7486189568262569984-Kaxs/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/from-local-commits-to-ai-assisted-pull-requests-a-week-inside-git-and-github-9f17fe7cf4e5 |
-| 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
+| 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/feed/update/urn:li:ugcPost:7492683883314880513/ | https://medium.com/@gideonomole9/from-jira-board-to-live-deploy-to-ai-agent-a-full-devops-lifecycle-walkthrough-6d01efbc7ade |
 | 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
