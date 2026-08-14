@@ -20,31 +20,32 @@ Build a VPC (10.0.0.0/16) with two public and two private subnets across two Ava
 
 #### Screenshot 1 — VPC details showing CIDR 10.0.0.0/16
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as5-scr1.png)
 
 ---
 
 #### Screenshot 2 — Subnets list showing four subnets and their Availability Zones
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as5-scr2.png)
 
 ---
 
 #### Screenshot 3 — Public route table showing the Internet Gateway route and both public-subnet associations
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as5-scr3.png)
 
 ---
 
 #### Screenshot 4 — Private route table showing the NAT Gateway route and both private-subnet associations
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as5-scr4.png)
+![screenshot-4](screenshots/gideon-omole-as5-scr4.1.png)
 
 ---
 
 #### Screenshot 5 — NAT Gateway status showing Available and the Elastic IP
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as5-scr5.png)
 
 ---
 
@@ -58,19 +59,19 @@ Create `ha-alb-sg` (HTTP public), `ha-web-sg` (HTTP only from `ha-alb-sg`, SSH f
 
 #### Screenshot 6 — ALB Security Group inbound rules
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as5-scr6.png)
 
 ---
 
 #### Screenshot 7 — EC2 Security Group inbound rules showing the ALB Security Group reference and SSH from your IP
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as5-scr7.png)
 
 ---
 
 #### Screenshot 8 — RDS Security Group inbound rule showing the database port allowed only from the EC2 Security Group
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as5-scr8.png)
 
 ---
 
@@ -84,13 +85,13 @@ Launch a private, Multi-AZ RDS database (MySQL or PostgreSQL) using the private 
 
 #### Screenshot 9 — RDS summary showing Multi-AZ = Yes and Publicly accessible = No
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as5-scr9.png)
 
 ---
 
 #### Screenshot 10 — RDS connectivity section showing the DB Subnet Group and Security Group
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as5-scr10.png)
 
 ---
 
@@ -104,13 +105,13 @@ Create a Launch Template whose user data installs the web-server runtime, deploy
 
 #### Screenshot 11 — Launch Template details showing that user data exists, including a visible snippet
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as5-scr11.png)
 
 ---
 
 #### Screenshot 12 — A running instance created from the template showing that the application responds on port 80 through a local test or browser using its public IP
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as5-scr12.png)
 
 ---
 
@@ -124,13 +125,13 @@ Create an internet-facing ALB across both public subnets with an HTTP listener a
 
 #### Screenshot 13 — ALB details showing two public subnets in two Availability Zones
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as5-scr13.png)
 
 ---
 
 #### Screenshot 14 — Target group showing at least one healthy target
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as5-scr14.png)
 
 ---
 
@@ -144,13 +145,13 @@ Create an Auto Scaling Group from the Launch Template across both public subnets
 
 #### Screenshot 15 — Auto Scaling Group showing desired, minimum, and maximum capacity and the selected subnet Availability Zones
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as5-scr15.png)
 
 ---
 
 #### Screenshot 16 — EC2 instances list showing two running instances in different Availability Zones
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as5-scr16.png)
 
 ---
 
@@ -164,13 +165,14 @@ Confirm the application communicates with the RDS database through the ALB DNS n
 
 #### Screenshot 17 — Browser showing the application loaded through the ALB DNS name with the URL visible
 
-Add your screenshot here.
+![screenshot-17](screenshots/gideon-omole-as5-scr17.png)
+![screenshot-17](screenshots/gideon-omole-as5-scr17.1.png)
 
 ---
 
 #### Screenshot 18 — Proof of a database write through a UI message or database query output
 
-Add your screenshot here.
+![screenshot-18](screenshots/gideon-omole-as5-scr18.png)
 
 ---
 
@@ -186,25 +188,25 @@ Test B: simulate an Availability Zone impact (stop, detach, or reduce desired ca
 
 #### Screenshot 19 — EC2 showing the terminated instance and the newly launched instance; timestamps are helpful
 
-Add your screenshot here.
+![screenshot-19](screenshots/gideon-omole-as5-scr19.png)
 
 ---
 
 #### Screenshot 20 — Target group showing healthy targets after replacement
 
-Add your screenshot here.
+![screenshot-20](screenshots/gideon-omole-as5-scr20.png)
 
 ---
 
 #### Screenshot 21 — Evidence that an instance was removed, detached, placed in Standby, or stopped in one Availability Zone
 
-Add your screenshot here.
+![screenshot-21](screenshots/gideon-omole-as5-scr21.png)
 
 ---
 
 #### Screenshot 22 — Browser showing that the ALB DNS endpoint still works during the change
 
-Add your screenshot here.
+![screenshot-22](screenshots/gideon-omole-as5-scr22.png)
 
 ---
 
@@ -218,7 +220,7 @@ Summarize the VPC/subnet layout, the ALB and Auto Scaling Group setup, the priva
 
 #### Screenshot 23 — A simple architecture diagram, which may be hand-drawn, or an AWS console overview showing the components
 
-Add your screenshot here.
+![screenshot-23](screenshots/gideon-omole-as5-scr23.png)
 
 ---
 
@@ -226,19 +228,19 @@ Add your screenshot here.
 
 Summarize the VPC and subnets across the two Availability Zones.
 
-Write your answer here.
+We built one VPC, ha-vpc, spread across two Availability Zones for redundancy. Each zone has a public subnet for the web servers and a private subnet for the database. Public subnets connect to the internet through an Internet Gateway. Private subnets have no direct internet access, they only reach it through a NAT Gateway, keeping the database hidden from the public internet.
 
 Summarize the ALB and Auto Scaling Group setup.
 
-Write your answer here.
+An Application Load Balancer (ha-alb) sits in front of the web servers and spreads incoming traffic across both public subnets. It only sends traffic to healthy instances. Behind it, an Auto Scaling Group (ha-asg) keeps 2 EC2 instances running at all times (up to 4 if needed) and automatically replaces any instance that fails its health check, so the site stays online without manual fixes.
 
 Summarize the private Multi-AZ RDS setup.
 
-Write your answer here.
+The database runs on Amazon RDS with Multi-AZ enabled, meaning there's a live standby copy in a second Availability Zone that takes over automatically if the primary fails. The database has no public access and sits in the private subnets, only reachable from the web servers through a security group rule. This keeps it fully isolated from the internet.
 
 Summarize the results of both high-availability tests.
 
-Write your answer here.
+The first test confirmed the app works end to end: WordPress installed successfully through the load balancer and could read and write data to the database. The second test confirmed self healing: when an instance was removed from one Availability Zone, the Auto Scaling Group automatically detected it and launched a replacement, bringing the system back to full capacity without any manual steps.
 
 ---
 
@@ -254,13 +256,13 @@ Publish a LinkedIn post about the high-availability build, including the ALB URL
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-cloudcomputing-highavailability-ugcPost-7494146454240927746-Mq61/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
 #### Screenshot of LinkedIn post
 
-Add your screenshot here.
+![screenshot-24](screenshots/gideon-omole-as5-scr24.png)
 
 ---
 
