@@ -36,7 +36,7 @@ Confirm successful Azure Portal access and Locate the required services and subs
 
 #### Screenshot 2 — "Subscriptions" section showing the "Free Trial" subscription
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as1-scr2.png)
 
 ---
 
@@ -44,7 +44,7 @@ Add your screenshot here.
 
 Write a three-to-four-line paragraph explaining which Azure services you plan to explore first and why.
 
-Write your answer here.
+I plan to begin with **Azure Virtual Machines** and **Azure App Service**, since they provide a solid foundation for hosting applications and experimenting with cloud infrastructure. Virtual Machines will help me understand scalability and resource management, while App Service offers a streamlined way to deploy web apps without worrying about server maintenance. Exploring these first will give me both flexibility and simplicity as I build cloud solutions.
 
 ---
 
