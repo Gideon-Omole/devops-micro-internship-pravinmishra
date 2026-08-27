@@ -20,7 +20,7 @@ Confirm your Azure CLI is authenticated and can see the VM, network, storage acc
 
 #### Screenshot 1 — `az account show` and `az vm list -d -o table` confirming your subscription and running VM (subscription ID partially blurred)
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as7-scr1.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create a `CLAUDE.md` for this workspace that tells Claude what the audit covers 
 
 #### Screenshot 2 — `CLAUDE.md` open in your editor showing the project overview, audit workflow, and safety rules
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as7-scr2.png)
 
 ---
 
@@ -48,7 +48,8 @@ Ask Claude Code to read `CLAUDE.md` and propose a read-only, four-check audit pl
 
 #### Screenshot 3 — Claude Code showing the four-check plan, with no files created or modified
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as7-scr3.1.png)
+![screenshot-3](screenshots/gideon-omole-as7-scr3.2.png)
 
 ---
 
@@ -62,13 +63,14 @@ Write a Bash script that runs the four checks from Task 3 using read-only `az` c
 
 #### Screenshot 4 — Your script open in your editor, showing the check functions and the `az` commands they call
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as7-scr4.1.png)
+![screenshot-4](screenshots/gideon-omole-as7-scr4.2.png)
 
 ---
 
 #### Screenshot 5 — Output of `bash -n` (no syntax errors) and `ls -l` showing the script is executable
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as7-scr5.png)
 
 ---
 
@@ -82,7 +84,7 @@ Run the script against your live resources and read the report honestly, even if
 
 #### Screenshot 6 — Script output showing your Full Name and all four checks with a PASS, WARN, or FAIL result
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as7-scr6.png)
 
 ---
 
@@ -96,13 +98,14 @@ Create a Claude Code skill restricted to read-only tools (no `Write`) that runs 
 
 #### Screenshot 7 — Your skill file's frontmatter showing `allowed-tools` without `Write`
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as7-scr7.png)
 
 ---
 
 #### Screenshot 8 — `/azure-audit` output showing the baseline findings and Claude's explanation
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as7-scr8.1.png)
+![screenshot-8](screenshots/gideon-omole-as7-scr8.2.png)
 
 ---
 
@@ -116,19 +119,19 @@ Pick one WARN or FAIL finding (or deliberately open an NSG rule to port 22 from 
 
 #### Screenshot 9 — Saved report showing the original finding before the fix
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as7-scr9.png)
 
 ---
 
 #### Screenshot 10 — Terminal output of the remediation command you ran yourself
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as7-scr10.png)
 
 ---
 
 #### Screenshot 11 — Second `/azure-audit` run (or report) showing the finding resolved
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as7-scr11.png)
 
 ---
 
@@ -136,7 +139,26 @@ Add your screenshot here.
 
 Compare this assignment to the AWS audit you built in Week 6: which finding categories map to each other across the two clouds, and what stayed exactly the same about the workflow even though the `az`/`aws` commands are completely different?
 
-Add your answer here
+**Comparing this Azure audit to the Week 6 AWS audit:**
+
+Mapping the finding categories across the two clouds shows they are really the same three security questions, just asked with different CLI vocabulary:
+
+| AWS Check | Azure Check | Underlying Question |
+|---|---|---|
+| Security Group allowing SSH (22) from `0.0.0.0/0` | NSG rule allowing unrestricted inbound SSH/RDP (`Allow-SSH-Admin`) | Who can reach this network? |
+| Security Group allowing MySQL (3306) from `0.0.0.0/0` | NSG rules restricting the database subnet to only the app tier | Who can reach this network? (applied to a data port instead of a management port) |
+| S3 bucket public-access block setting | Storage Account `allowBlobPublicAccess` | Is data exposed publicly? |
+| EBS volume encryption | VM OS disk encryption (`EncryptionAtRestWithPlatformKey`) | Is data encrypted at rest? |
+| RDS public accessibility | Azure Database for MySQL `publicNetworkAccess` | Is the database reachable from the internet? |
+
+Even though every `az` command is completely different from every `aws` command, the underlying workflow did not change at all:
+
+1. **Gather** — A deterministic Bash script collects evidence using only read-only CLI calls (`describe-`/`get-`/`list-` in AWS, `show`/`list` in Azure), writes a PASS/WARN/FAIL line for each check to a report file, and exits with a code reflecting the overall result.
+2. **Analyze** — Claude reads the report file (never live cloud state directly) and explains what each finding means and why it matters, restricted to `Bash`, `Read`, and `Grep` tools with no `Write` access and explicit instructions never to execute a mutating command.
+3. **Human Act** — I ran the actual remediation command myself, in a separate terminal, scoped narrowly (my own `/32` IP instead of `0.0.0.0/0`). Claude only ever recommended the command; it never executed it.
+4. **Verify** — Re-running the audit script produced a fresh report proving the fix worked, saved separately as `before-fix-report.txt` and `after-fix-report.txt`.
+
+The real lesson is that this Agentic Loop — gather with a script, reason with AI, act as a human, verify again — is provider-agnostic. The three questions underneath ("who can reach this network," "is data exposed publicly," "is data encrypted at rest") are the same questions any cloud security review asks, regardless of vendor. What changes between AWS and Azure is only the vocabulary of the CLI (`security-groups` vs. `nsg`, `describe-db-instances` vs. `mysql flexible-server show`); the discipline of read-only evidence collection, AI-assisted risk explanation, and human-approved remediation transfers completely unchanged.
 
 ---
 
