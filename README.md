@@ -137,7 +137,7 @@ Week 07 → Azure Cloud
 | 04 | Git & GitHub | ✅ Completed  | ✅ Completed  | https://www.linkedin.com/posts/gideon-omole-5ba318180_dmi-devops-micro-internship-with-agentic-share-7486189568262569984-Kaxs/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/from-local-commits-to-ai-assisted-pull-requests-a-week-inside-git-and-github-9f17fe7cf4e5 |
 | 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_scrum-jira-agilelearning-ugcPost-7492683883314880513-Ccps/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/from-jira-board-to-live-deploy-to-ai-agent-a-full-devops-lifecycle-walkthrough-6d01efbc7ade |
 | 06 | AWS Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-cloudcomputing-devops-ugcPost-7495160589305090048-6RtO/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/week-6-of-aws-cloud-from-a-static-portfolio-to-a-production-style-three-tier-deployment-dc5f265a278f |
-| 07 | Azure Cloud | ✅ Completed | ✅ Solved | — | — |
+| 07 | Azure Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/feed/update/urn:li:ugcPost:7501303167045865472/ | https://medium.com/@gideonomole9/building-on-azure-from-cloud-deployment-to-security-auditing-99235e3993ea?sharedUserId=gideonomole9 |
 | 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
 | 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
