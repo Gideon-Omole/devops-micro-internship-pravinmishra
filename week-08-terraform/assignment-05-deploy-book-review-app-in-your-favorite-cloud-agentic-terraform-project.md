@@ -31,7 +31,7 @@ Prepare the Book Review App project and configure the provided Claude Code Agent
 
 Add a screenshot of the project `CLAUDE.md` showing the three-tier architecture, security boundaries, Terraform requirements, and human-approval rules.
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as5-scr1.png)
 
 ---
 
@@ -39,7 +39,7 @@ Add your screenshot here.
 
 Add a screenshot showing the Terraform Engineer subagent configuration.
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as5-scr2.png)
 
 ---
 
@@ -47,7 +47,7 @@ Add your screenshot here.
 
 Add a screenshot showing the Architecture and Security Reviewer subagent configuration.
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as5-scr3.png)
 
 ---
 
@@ -55,7 +55,7 @@ Add your screenshot here.
 
 Add a screenshot showing Terraform MCP connected and available.
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as5-scr4.png)
 
 ---
 
@@ -63,7 +63,7 @@ Add your screenshot here.
 
 Add a screenshot showing the configured Claude Code validation hooks.
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as5-scr5.png)
 
 ---
 
@@ -90,7 +90,7 @@ The diagram must show:
 
 ## Architecture Diagram
 
-Add the completed architecture diagram here.
+![screenshot](screenshots/gideon-omole-as5-architecture.jpg)
 
 ---
 
@@ -106,7 +106,7 @@ Create the modular Terraform project and implement the network and security laye
 
 Add a screenshot showing the modular Terraform project structure.
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as5-scr6.png)
 
 ---
 
@@ -114,7 +114,7 @@ Add your screenshot here.
 
 Add a screenshot showing the six-subnet architecture across two availability locations.
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as5-scr7.png)
 
 ---
 
@@ -122,7 +122,8 @@ Add your screenshot here.
 
 Add a screenshot showing the public and private tier separation, including routing and security boundaries.
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as5-scr8.1.png)
+![screenshot-8](screenshots/gideon-omole-as5-scr8.2.png)
 
 ---
 
@@ -138,7 +139,8 @@ Deploy the public and internal load balancers and the Web and Application comput
 
 Add a screenshot showing the Web and Application compute resources in their required subnets.
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as5-scr9.1.png)
+![screenshot-9](screenshots/gideon-omole-as5-scr9.2.png)
 
 ---
 
@@ -146,7 +148,7 @@ Add your screenshot here.
 
 Add a screenshot showing the internet-facing public load balancer.
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as5-scr10.png)
 
 ---
 
@@ -154,7 +156,7 @@ Add your screenshot here.
 
 Add a screenshot showing the private internal load balancer.
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as6-scr11.png)
 
 ---
 
@@ -162,7 +164,7 @@ Add your screenshot here.
 
 Add a screenshot showing healthy target groups or backend pools.
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as5-scr12.png)
 
 ---
 
@@ -178,7 +180,7 @@ Deploy a private, highly available managed MySQL database with a read replica an
 
 Add a screenshot showing the managed MySQL database deployment.
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as5-scr13.png)
 
 ---
 
@@ -186,7 +188,7 @@ Add your screenshot here.
 
 Add a screenshot showing the Multi-AZ or high-availability configuration.
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as5-scr14.png)
 
 ---
 
@@ -194,7 +196,7 @@ Add your screenshot here.
 
 Add a screenshot showing the read replica configuration.
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as5-scr15.png)
 
 ---
 
@@ -202,7 +204,7 @@ Add your screenshot here.
 
 Add a screenshot showing that the database is private and accepts MySQL traffic only from the Application Tier.
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as5-scr16.png)
 
 ---
 
@@ -218,7 +220,7 @@ Validate the Terraform configuration, review the execution plan using both Agent
 
 Add a screenshot showing successful `terraform validate` output.
 
-Add your screenshot here.
+![screenshot-17](screenshots/gideon-omole-as5-scr17.png)
 
 ---
 
@@ -226,7 +228,7 @@ Add your screenshot here.
 
 Add a screenshot showing the Terraform plan output.
 
-Add your screenshot here.
+![screenshot-18](screenshots/gideon-omole-as5-scr18.png)
 
 ---
 
@@ -234,7 +236,7 @@ Add your screenshot here.
 
 Add a screenshot showing successful `terraform apply` completion.
 
-Add your screenshot here.
+![screenshot-19](screenshots/gideon-omole-as5-scr19.png)
 
 ---
 
@@ -250,7 +252,7 @@ Deploy and configure the Book Review App across the Web, Application, and Databa
 
 Add a screenshot showing the Book Review App homepage through the public endpoint.
 
-Add your screenshot here.
+![screenshot-20](screenshots/gideon-omole-as5-scr20.png)
 
 ---
 
@@ -258,7 +260,7 @@ Add your screenshot here.
 
 Add a screenshot showing successful login or authentication.
 
-Add your screenshot here.
+![screenshot-21](screenshots/gideon-omole-as5-scr21.png)
 
 ---
 
@@ -266,7 +268,7 @@ Add your screenshot here.
 
 Add a screenshot showing the book listing or book details.
 
-Add your screenshot here.
+![screenshot-22](screenshots/gideon-omole-as5-scr22.png)
 
 ---
 
@@ -274,7 +276,7 @@ Add your screenshot here.
 
 Add a screenshot showing the review functionality working successfully.
 
-Add your screenshot here.
+![screenshot-23](screenshots/gideon-omole-as5-scr23.png)
 
 ---
 
@@ -282,7 +284,7 @@ Add your screenshot here.
 
 Add a screenshot showing that the backend or API is working successfully.
 
-Add your screenshot here.
+![screenshot-24](screenshots/gideon-omole-as5-scr24.png)
 
 ---
 
@@ -290,11 +292,11 @@ Add your screenshot here.
 
 Add a screenshot showing successful database reads and writes.
 
-Add your screenshot here.
+![screenshot-25](screenshots/gideon-omole-as5-scr25.png)
 
 ## Public Application URL
 
-**Public Application URL / DNS:** Add the working public application URL or load-balancer DNS here
+**Public Application URL / DNS:** http://bookreview-dev-alb-public-571321512.us-east-1.elb.amazonaws.com
 
 ---
 
@@ -312,7 +314,7 @@ You do not need to submit your complete Claude Code conversation history. Includ
 
 Add a screenshot showing one useful example of AI-assisted Terraform generation or improvement.
 
-Add your screenshot here.
+![screenshot-26](screenshots/gideon-omole-as5-scr26.png)
 
 ---
 
@@ -320,7 +322,7 @@ Add your screenshot here.
 
 Add a screenshot showing one structured architecture or security review result.
 
-Add your screenshot here.
+![screenshot-27](screenshots/gideon-omole-as5-scr27.png)
 
 ---
 
@@ -328,7 +330,8 @@ Add your screenshot here.
 
 Add a screenshot showing one AI-assisted troubleshooting interaction based on collected evidence.
 
-Add your screenshot here.
+![screenshot-28](screenshots/gideon-omole-as5-scr28.png)
+
 
 ---
 
@@ -367,67 +370,67 @@ Reflect on the architecture, Terraform implementation, and Agentic AI workflow. 
 
 ### 1. Why did you separate the Web, Application, and Database tiers?
 
-Write your answer here.
+Separating the tiers limits how much damage a single compromised or misconfigured resource can do. If the web tier were compromised, an attacker would still have to get through the internal load balancer and the app tier's security group before ever reaching the database. Each tier only talks to the tier directly next to it (Web → App → DB), so there's no direct path from the internet to sensitive data.
 
 ### 2. Why is the Application Tier private?
 
-Write your answer here.
+The app tier's only job is to receive requests from the internal load balancer and talk to the database — it never needs to accept traffic directly from the internet. I removed its public IP entirely rather than just relying on security group rules, so there's no public address to even attempt to reach, even if a firewall rule were ever misconfigured. This is "defense in depth" — two independent controls instead of one.
 
 ### 3. Why is MySQL private?
 
-Write your answer here.
+The database holds the actual user and review data — it's the most sensitive part of the system. I set publicly_accessible = false on the RDS instance and configured its security group to only accept traffic on port 3306 from the app tier's security group, never from 0.0.0.0/0. I also gave the database's route table no route to the internet gateway or NAT gateway at all, so there's no outbound path either, not just no inbound one.
 
 ### 4. Why are multiple Availability Zones used?
 
-Write your answer here.
+An Availability Zone is basically an independent physical data center within a region. If I only used one, and that single AZ had an outage, the entire application would go down. By spreading subnets, compute, and the database across two AZs (us-east-1a and us-east-1b), the app can keep running even if one AZ fails.
 
 ### 5. What is the difference between Multi-AZ/high availability and a read replica?
 
-Write your answer here.
+Multi-AZ is about surviving failure: it keeps a synchronous standby copy of the database in a second AZ, and if the primary goes down, AWS automatically fails over to the standby. A read replica is about handling more traffic: it's an asynchronous copy you can send read-only queries to, so the primary isn't overloaded. I learned this distinction the hard way — I originally planned to deploy both, but hit a real AWS limitation where Secrets Manager–managed master credentials aren't compatible with read replicas on MySQL. I kept Multi-AZ (the availability guarantee) and removed the replica, documenting the tradeoff rather than weakening the credential security to keep it.
 
 ## Terraform
 
 ### 6. How did you divide your Terraform into modules?
 
-Write your answer here.
+I used five modules, one per architectural concern: network (VPC, subnets, routing, NAT), security (security groups and their rules), load-balancer (public and internal ALBs, listeners, target groups), compute (the EC2 instances for the web and app tiers), and database (RDS, subnet group, credentials). Each module only knows about its own resources — it doesn't reach into another module's files directly.
 
 ### 7. How do the modules communicate through variables and outputs?
 
-Write your answer here.
+Each module exposes only the specific values other modules actually need as outputs — for example, the network module outputs subnet IDs and the VPC ID, and the security module outputs security group IDs. The root main.tf then passes those outputs into the next module as input variables — for instance, the compute module receives web_subnet_ids and web_security_group_id from the network and security modules rather than redefining or guessing them. This kept every module's real, current state as the single source of truth instead of having multiple modules independently reference the same resource.
 
 ### 8. What did you specifically check in `terraform plan`?
 
-Write your answer here.
+On every phase, I checked for: any 0.0.0.0/0 rule outside the two intended public ALB rules (port 80/443), publicly_accessible settings on the database, map_public_ip_on_launch matching the correct tier (true only for web subnets), and whether any plan showed an unexpected destroy or replace on resources that were already applied. I also specifically counted the number of resources being added against what I expected, so an unexpectedly large or small plan would stand out immediately.
 
 ## Agentic AI
 
 ### 9. What was the purpose of `CLAUDE.md`?
 
-Write your answer here.
+CLAUDE.md gave Claude Code persistent context and rules that it reads automatically at the start of every session, so I never had to re-explain the architecture, the required ports, or the safety rules (like never auto-approving apply or destroy) each time I opened a new session. It's the single place where the project's non-negotiable constraints live.
 
 ### 10. What work did the Terraform Engineer subagent perform?
 
-Write your answer here.
+This subagent did all of the hands-on Terraform work: designing the module structure, writing the actual .tf files for networking, security groups, load balancers, compute, and the database, running fmt/validate/plan, and researching current AWS provider syntax through the Terraform MCP server before writing resources it wasn't fully certain about (for example, confirming the newer aws_vpc_security_group_ingress_rule resource style instead of the older inline security group blocks).
 
 ### 11. What did the Architecture and Security Reviewer identify?
 
-Write your answer here.
+Across the phases, the reviewer caught a few real issues before I applied anything — most notably a count/index mismatch in the network module where subnet counts and Availability Zone counts came from two different variables, which would have caused a deployment failure if I'd ever changed the AZ count without also updating the subnet CIDR lists. It also flagged (WARN, not FAIL) things like the lack of enable_deletion_protection on the load balancers, which I accepted as a reasonable tradeoff for a capstone project rather than production.
 
 ### 12. Why did you use Terraform MCP instead of relying only on Claude's existing Terraform knowledge?
 
-Write your answer here.
+AWS provider syntax changes fairly often — arguments get renamed, deprecated, or replaced with newer resource types. Relying purely on Claude's training data risked generating Terraform based on a syntax that AWS had already changed. Terraform MCP let Claude look up the current, live provider documentation before writing resources, which is exactly why it caught things like the shift toward standalone aws_vpc_security_group_ingress_rule/egress_rule resources instead of the older inline security group block style.
 
 ### 13. What was the purpose of your validation hooks?
 
-Write your answer here.
+The hooks made terraform fmt run automatically every time a .tf file was edited, regardless of whether I remembered to run it myself. This is a deterministic check rather than something that depends on the AI (or me) remembering to do it — it guarantees consistent formatting on every change instead of being a "best effort" habit.
 
 ### 14. Describe one real issue Claude helped you troubleshoot.
 
-Write your answer here.
+When I tried to apply the database module, terraform apply failed with a real AWS error: FreeTierRestrictionError: The specified backup retention period exceeds the maximum available to free tier customers. I traced the value through two layers of indirection — the resource referenced a module-level variable, which itself was being overridden by a root-level variable with a default of 7 days. I found this by grepping for backup_retention_period across every file until I found where the actual value of 7 was coming from, changed the root variable's default to 1, and reconfirmed the fix by generating a fresh plan and checking the value directly with terraform show.
 
 ### 15. Describe one recommendation you reviewed, modified, or rejected instead of accepting blindly.
 
-Write your answer here.
+When manage_master_user_password (Secrets Manager–managed RDS credentials) turned out to be incompatible with MySQL read replicas, I had two options: switch to a traditional plaintext-adjacent password just to keep the replica, or drop the replica and keep the safer credential handling. I chose to keep manage_master_user_password and remove the replica, documenting the reasoning directly in the Terraform file as a comment rather than silently dropping it. I prioritized the stronger security posture over a "nice to have" architecture feature, which is exactly the kind of judgment call the assignment's "human remains responsible for every infrastructure decision" rule is meant to test.
 
 ---
 
@@ -441,7 +444,7 @@ Write the post in your own words, include at least one project image or other pr
 
 ## LinkedIn Post URL
 
-**LinkedIn Post URL:** Add your LinkedIn post URL here
+**LinkedIn Post URL:** https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-terraform-devops-activity-7504124155638845441-jL2t/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4
 
 ---
 

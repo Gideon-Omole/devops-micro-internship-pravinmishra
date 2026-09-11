@@ -24,7 +24,7 @@ Prepare your local environment by installing Terraform, AWS CLI, and the HashiCo
 
 Add a screenshot of the terminal showing successful `terraform version` output.
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as3-scr1.png)
 
 ---
 
@@ -32,15 +32,14 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing successful `aws --version` output.
 
-Add your screenshot here.
-
+![screenshot-2](screenshots/gideon-omole-as3-scr2.png)
 ---
 
 ### Screenshot 3 — HashiCorp Terraform Extension
 
 Add a screenshot of VS Code showing the HashiCorp Terraform extension installed and enabled.
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as1-scr3.png)
 
 ---
 
@@ -80,7 +79,7 @@ terraform-aws-epicbook/
 
 Add a screenshot of the VS Code Explorer showing the complete root project and the `network`, `ec2`, and `rds` module directory structure.
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as4-scr4.png)
 
 ---
 
@@ -109,7 +108,7 @@ The network module must include:
 
 Add a screenshot of VS Code showing the VPC, public subnet, and two private database subnet configurations.
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as4-scr5.png)
 
 ---
 
@@ -117,7 +116,7 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing the Internet Gateway, public route table, and route table association.
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as4-scr6.png)
 
 ---
 
@@ -125,7 +124,8 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing the EC2 and RDS Security Groups, including MySQL access from the EC2 Security Group only.
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as4-scr7.png)
+![screenshot-7](screenshots/gideon-omole-as4-scr7.1.png)
 
 ---
 
@@ -133,7 +133,7 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing the network module outputs.
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as4-scr8.png)
 
 ---
 
@@ -161,7 +161,7 @@ The `user_data.sh` script must install the required software without storing dat
 
 Add a screenshot of VS Code showing the EC2 resource and `user_data` configuration.
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as4-scr9.png)
 
 ---
 
@@ -171,7 +171,7 @@ Add a screenshot of VS Code showing `user_data.sh`.
 
 Ensure that no credentials, passwords, private keys, access tokens, or application secrets are visible.
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as4-scr10.png)
 
 ---
 
@@ -179,7 +179,8 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing the EC2 module variables and outputs.
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as4-scr11.png)
+![screenshot-11](screenshots/gideon-omole-as4-scr11.1.png)
 
 ---
 
@@ -205,7 +206,7 @@ The RDS module must include:
 
 Add a screenshot of VS Code showing the DB subnet group and RDS MySQL configuration.
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as4-scr12.png)
 
 ---
 
@@ -215,7 +216,8 @@ Add a screenshot of VS Code showing `publicly_accessible = false`, the RDS Secur
 
 Ensure that the database password and other sensitive values are hidden.
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as4-scr13.png)
+![screenshot-13](screenshots/gideon-omole-as4-scr13.1.png)
 
 ---
 
@@ -223,7 +225,7 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing the RDS endpoint output.
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as4-scr14.png)
 
 ---
 
@@ -239,7 +241,7 @@ Use the root Terraform configuration to call the Network, EC2, and RDS modules a
 
 Add a screenshot of VS Code showing the root `main.tf` with the Network, EC2, and RDS module blocks.
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as4-scr15.png)
 
 ---
 
@@ -247,7 +249,7 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing values passed from the Network module to the EC2 and RDS modules.
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as4-scr16.png)
 
 ---
 
@@ -255,7 +257,7 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing the root EC2 public IP and RDS endpoint outputs.
 
-Add your screenshot here.
+![screenshot-17](screenshots/gideon-omole-as4-scr17.png)
 
 ---
 
@@ -271,7 +273,7 @@ Initialize the modular Terraform project, validate the configuration, review the
 
 Add a screenshot of the terminal showing successful `terraform init` output.
 
-Add your screenshot here.
+![screenshot-18](screenshots/gideon-omole-as4-scr18.png)
 
 ---
 
@@ -279,7 +281,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing successful `terraform validate` output.
 
-Add your screenshot here.
+![screenshot-19](screenshots/gideon-omole-as4-scr19.png)
 
 ---
 
@@ -287,7 +289,7 @@ Add your screenshot here.
 
 Add a screenshot showing the Terraform plan summary and proposed resources.
 
-Add your screenshot here.
+![screenshot-20](screenshots/gideon-omole-as4-scr20.png)
 
 ---
 
@@ -295,7 +297,7 @@ Add your screenshot here.
 
 Add a screenshot showing successful `terraform apply` completion.
 
-Add your screenshot here.
+![screenshot-21](screenshots/gideon-omole-as4-scr21.png)
 
 ---
 
@@ -303,7 +305,7 @@ Add your screenshot here.
 
 Add a screenshot showing the EC2 public IP and RDS endpoint returned by `terraform output`.
 
-Add your screenshot here.
+![screenshot-22](screenshots/gideon-omole-as4-scr22.png)
 
 ---
 
@@ -319,7 +321,7 @@ Verify that the EC2 and RDS resources were successfully provisioned and confirm 
 
 Add a screenshot of AWS CLI showing the EC2 instance running.
 
-Add your screenshot here.
+![screenshot-23](screenshots/gideon-omole-as4-scr23.png)
 
 ---
 
@@ -327,7 +329,7 @@ Add your screenshot here.
 
 Add a screenshot of AWS CLI showing that RDS is available and not publicly accessible.
 
-Add your screenshot here.
+![screenshot-24](screenshots/gideon-omole-as4-scr24.png)
 
 ---
 
@@ -335,7 +337,7 @@ Add your screenshot here.
 
 Add a screenshot of the EC2 terminal showing the required software version checks and the active Nginx service.
 
-Add your screenshot here.
+![screenshot-25](screenshots/gideon-omole-as4-scr25.png)
 
 ---
 
@@ -353,7 +355,7 @@ Add a screenshot of the terminal showing a successful connection from EC2 to Ama
 
 Ensure that the database password is not visible.
 
-Add your screenshot here.
+![screenshot-26](screenshots/gideon-omole-as4-scr26.png)
 
 ---
 
@@ -361,7 +363,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing the EpicBook tables and imported data.
 
-Add your screenshot here.
+![screenshot-27](screenshots/gideon-omole-as4-scr27.png)
 
 ---
 
@@ -469,7 +471,7 @@ Add your screenshot here.
 
 ## LinkedIn Post URL
 
-**LinkedIn Post URL:** Add your LinkedIn post URL here
+**LinkedIn Post URL:** https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-terraform-devops-ugcPost-7503076545016655872-YPNB/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4
 
 ---
 

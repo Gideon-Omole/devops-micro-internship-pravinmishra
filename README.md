@@ -91,8 +91,8 @@ Week 06 → AWS Cloud
 Week 07 → Azure Cloud
 [![Week 07 – Azure](./badges/week-07.svg)](./week-07-azure-cloud/)
 
-<!-- Week 08 → Terraform -->
-<!-- [![Week 08 – Terraform](./badges/week-08.svg)](./week-08-terraform/) -->
+Week 08 → Terraform 
+[![Week 08 – Terraform](./badges/week-08.svg)](./week-08-terraform/) 
 
 <!-- Week 09 → Ansible -->
 <!-- [![Week 09 – Ansible](./badges/week-09.svg)](./week-09-ansible/) -->
@@ -138,7 +138,7 @@ Week 07 → Azure Cloud
 | 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_scrum-jira-agilelearning-ugcPost-7492683883314880513-Ccps/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/from-jira-board-to-live-deploy-to-ai-agent-a-full-devops-lifecycle-walkthrough-6d01efbc7ade |
 | 06 | AWS Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-cloudcomputing-devops-ugcPost-7495160589305090048-6RtO/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/week-6-of-aws-cloud-from-a-static-portfolio-to-a-production-style-three-tier-deployment-dc5f265a278f |
 | 07 | Azure Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/feed/update/urn:li:ugcPost:7501303167045865472/ | https://medium.com/@gideonomole9/building-on-azure-from-cloud-deployment-to-security-auditing-99235e3993ea?sharedUserId=gideonomole9 |
-| 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
+| 08 | Terraform | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-terraform-devops-ugcPost-7504287752662937607-q1aH/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/building-production-infrastructure-with-an-ai-engineering-assistant-what-i-learned-deploying-a-debe485173d0 |
 | 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
