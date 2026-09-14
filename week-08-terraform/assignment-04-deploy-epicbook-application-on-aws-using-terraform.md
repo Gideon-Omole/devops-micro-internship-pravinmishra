@@ -379,7 +379,7 @@ Install EpicBook dependencies, configure the application to use Amazon RDS, conf
 
 Add a screenshot of the terminal showing successful dependency installation and the `node_modules` directory.
 
-Add your screenshot here.
+![screenshot-28](screenshots/gideon-omole-as4-scr28.png)
 
 ---
 
@@ -387,7 +387,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing a successful Nginx configuration test and active service status.
 
-Add your screenshot here.
+![screenshot-29](screenshots/gideon-omole-as4-scr29.png)
 
 ---
 
@@ -395,7 +395,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing EpicBook running or listening on port `8080`.
 
-Add your screenshot here.
+![screenshot-30](screenshots/gideon-omole-as4-scr30.png)
 
 ---
 
@@ -407,7 +407,7 @@ Verify that EpicBook, EC2, Nginx, and Amazon RDS work together successfully.
 
 ## EC2 Public IP URL
 
-**EC2 Public IP URL:** Add the working EpicBook EC2 public IP URL here
+**EC2 Public IP URL:** 56.228.5.250
 
 ## Evidence
 
@@ -415,7 +415,7 @@ Verify that EpicBook, EC2, Nginx, and Amazon RDS work together successfully.
 
 Add a screenshot of the browser showing EpicBook using the EC2 public IP.
 
-Add your screenshot here.
+![screenshot-31](screenshots/gideon-omole-as4-scr31.png)
 
 ---
 
@@ -423,7 +423,7 @@ Add your screenshot here.
 
 Add a screenshot of the browser showing a successful cart or checkout action.
 
-Add your screenshot here.
+![screenshot-32](screenshots/gideon-omole-as4-scr32.png)
 
 ---
 
@@ -433,7 +433,7 @@ Add a screenshot of the terminal showing the corresponding RDS database record c
 
 Ensure that database credentials and other sensitive values are not visible.
 
-Add your screenshot here.
+![screenshot-33](screenshots/gideon-omole-as4-scr33.png)
 
 ---
 
@@ -449,8 +449,7 @@ Remove all AWS resources created by the modular Terraform configuration.
 
 Add a screenshot of the terminal showing successful `terraform destroy` completion.
 
-Add your screenshot here.
-
+![screenshot-34](screenshots/gideon-omole-as4-scr34.png)
 ---
 
 # Task 12 — LinkedIn Post (Mandatory)
@@ -467,7 +466,7 @@ Write the post in your own words and include at least one deployment screenshot 
 
 Add a screenshot of the published LinkedIn post showing the post and at least one deployment image or other proof.
 
-Add your screenshot here.
+![screenshot-35](screenshots/gideon-omole-as4-scr35.png)
 
 ## LinkedIn Post URL
 
