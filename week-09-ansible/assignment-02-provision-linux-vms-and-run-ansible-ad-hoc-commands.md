@@ -24,19 +24,23 @@ This project will use the Git repository and Ansible controller prepared in Assi
 
 #### Screenshot 1 — Terminal showing the complete `ansible-adhoc-lab` project structure
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as2-scr1.png)
 
 ---
 
 #### Screenshot 2 — Terminal showing `git status --short` with the new project files and updated `.gitignore`
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as2-scr2.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Created a separate ansible-adhoc-lab/ project directory inside the existing ansible-onboarding workspace, split into terraform/ and ansible/ subfolders to keep infrastructure code and inventory/config cleanly separated. Reused the Git repository and Python virtual environment from Assignment 01 rather than creating a new one — no git init was run inside ansible-adhoc-lab.
+
+Updated the existing .gitignore to also exclude Terraform's working directory (.terraform/), state files (*.tfstate, *.tfstate.*), saved plans (*.tfplan), and crash logs, while intentionally keeping .terraform.lock.hcl trackable as instructed, since it pins provider versions for the team.
+
+Verified with git status --short that no Terraform-generated files were staged, confirming the ignore rules are working correctly before any terraform init was run.
 
 ---
 
@@ -57,25 +61,31 @@ Do not configure both providers for this assignment.
 
 #### Screenshot 3 — Terraform configuration showing the three or four server roles and the `for_each` or `count` implementation
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as2-scr3.png)
 
 ---
 
 #### Screenshot 4 — Terraform configuration showing SSH restricted to the controller IP and HTTP allowed only for web hosts
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as2-scr4.png)
 
 ---
 
 #### Screenshot 5 — Terraform output configuration showing how public IP addresses are associated with the server roles
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as2-scr5.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Selected AWS as the cloud platform and the four-VM option (web1, web2, app1, db1). Defined server roles in a vm_roles list variable and used a single aws_instance resource block with for_each = toset(var.vm_roles) to provision all four VMs, instead of writing four separate, repeated resource blocks. Each VM's Name tag is set dynamically using each.key, which matches the current role being looped over.
+
+All four instances share the same Ubuntu 22.04 AMI (looked up dynamically via a data "aws_ami" block rather than hardcoding a region-specific AMI ID), the same instance type, subnet, and security group, and use the same SSH key pair created from the controller's existing public key (id_ed25519.pub).
+
+Networking and security were configured with a single VPC, public subnet, internet gateway, and route table shared across all instances, plus one security group (sg-ansible-adhoc-lab) restricting inbound SSH to only the Ansible controller's public IP in /32 format, while allowing inbound HTTP from anywhere for the web role. No cloud credentials were hardcoded in the Terraform files — authentication is handled entirely through the AWS CLI configuration on the controller.
+
+Defined a public_ips output as a role-to-IP map so each VM's address can be clearly matched to its role (web1, web2, app1, db1) once provisioned, which will be used directly when building the Ansible inventory in Task 5.
 
 ---
 
@@ -89,25 +99,29 @@ Initialize and validate the Terraform configuration, review the execution plan, 
 
 #### Screenshot 6 — Final `terraform apply` output showing `Apply complete`
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as2-scr6.png)
 
 ---
 
 #### Screenshot 7 — `terraform output public_ips` showing the role-to-IP mapping for all three or four VMs
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as2-scr7.png)
 
 ---
 
 #### Screenshot 8 — Azure Portal or AWS Management Console showing all three or four VMs in the `Running` state, with their role-based names visible
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as2-scr8.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Ran terraform fmt and terraform fmt -check to confirm consistent formatting, then terraform init to download the AWS provider. terraform validate initially failed because AWS reserves the sg- prefix for auto-generated security group IDs and rejects it in a custom name field — fixed by renaming the security group's name to ansible-adhoc-lab-sg while keeping sg-ansible-adhoc-lab as its Name tag for consistency with the naming convention used elsewhere. Re-ran terraform validate, which passed successfully.
+
+Reviewed terraform plan to confirm it would create exactly the expected resources — one VPC, one public subnet, an internet gateway, route table and association, one security group, one key pair, and four EC2 instances (web1, web2, app1, db1) — with SSH restricted to the controller's /32 IP and no unexpected deletions or region mismatches.
+
+Ran terraform apply and confirmed all resources were created successfully (Apply complete!). Retrieved the four public IP addresses via terraform output public_ips, and verified all four EC2 instances were shown as running in the AWS Console with their correct role-based Name tags. Confirmed via git status --short that Terraform state files and the .terraform/ working directory remained excluded from Git as expected.
 
 ---
 
@@ -121,13 +135,13 @@ Verify that each managed VM can be accessed from the Ansible controller using SS
 
 #### Screenshot 9 — Terminal showing successful SSH hostname output from all VMs
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as2-scr9.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+SSH'd into all four VMs (web1, web2, app1, db1) from the controller using the ubuntu username and the existing SSH key. All four connected successfully on the first try, accepting the host fingerprint and returning a hostname with no password prompt — confirming key-based authentication was set up correctly.
 
 ---
 
@@ -143,19 +157,19 @@ The inventory allows Ansible to run commands against all servers, or only specif
 
 #### Screenshot 10 — `inventory.ini` showing the `web`, `app`, and `db` groups
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as2-scr10.png)
 
 ---
 
 #### Screenshot 11 — Output of `ansible-inventory -i inventory.ini --graph`
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as2-scr11.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Created inventory.ini grouping the four VMs by role — web (web1, web2), app (app1), and db (db1) — using each VM's public IP from the Terraform output. Set ansible_user and ansible_ssh_private_key_file once under [all:vars] so every host uses the same login details without repeating them. Added a local ansible.cfg with host_key_checking = False to avoid repeated fingerprint prompts during testing. Verified the structure with ansible-inventory -i inventory.ini --graph, which correctly showed all three groups and hosts.
 
 ---
 
@@ -171,43 +185,43 @@ This task proves that the inventory is working and that Ansible can control mult
 
 #### Screenshot 12 — Output of `ansible all -i inventory.ini -m ping`
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as2-scr12.png)
 
 ---
 
 #### Screenshot 13 — Output of `ansible all -i inventory.ini -m command -a "uptime"`
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as2-scr13.png)
 
 ---
 
 #### Screenshot 14 — Output of `ansible web -i inventory.ini -m apt -a "name=nginx state=present update_cache=yes" --become`
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as2-scr14.png)
 
 ---
 
 #### Screenshot 15 — Output of `ansible web -i inventory.ini -m service -a "name=nginx state=started enabled=yes" --become`
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as2-scr15.png)
 
 ---
 
 #### Screenshot 16 — Output of `ansible all -i inventory.ini -m apt -a "name=htop state=present update_cache=yes" --become`
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as2-scr16.png)
 
 ---
 
 #### Screenshot 17 — Output of `ansible web -i inventory.ini -m command -a "systemctl is-active nginx"`
 
-Add your screenshot here.
+![screenshot-17](screenshots/gideon-omole-as2-scr17.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Ran ansible all -m ping to confirm connectivity to all four VMs — all returned SUCCESS. Ran ad-hoc commands to check whoami and uptime across all hosts. Used --become to install and start Nginx on the web group only, and confirmed it was active with systemctl is-active nginx. Installed htop on all four VMs. Checked disk usage on the db group and memory usage across all hosts. All commands completed successfully, confirming the inventory groups work correctly and Ansible can manage multiple hosts without a playbook.
 
 ---
 
@@ -219,13 +233,13 @@ Add your task notes here.
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_devops-terraform-ansible-activity-7505620090286043137-LYNL/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![screenshot-18](screenshots/gideon-omole-as2-scr18.png)
 
 ---
 
@@ -235,38 +249,37 @@ Answer the following in your own words:
 
 **1. What is the purpose of an Ansible inventory file?**
 
-Add your answer here.
+It's a list of all the servers Ansible can manage, organized under friendly names and groups, along with the connection details (IP address, SSH user, private key) needed to reach each one. Instead of typing IP addresses and login details every time, you reference servers by name or group, and Ansible looks up the rest automatically.
 
 ---
 
 **2. What is the difference between the `web`, `app`, and `db` groups in your inventory?**
 
-Add your answer here.
+They're separate groups representing different roles in the infrastructure — web1 and web2 are the web servers, app1 is the application server, and db1 is the database server. Grouping them by role lets you target commands at just one type of server (like installing Nginx only on the web group) instead of running the same command against every server regardless of its purpose.
 
 ---
 
 **3. What does the Ansible `ping` module verify?**
 
-Add your answer here.
+It confirms Ansible can successfully connect to a host over SSH and that Python is available and working on the remote machine. It's not an actual network ping (ICMP) — it's checking that Ansible itself can communicate with and control the server, not just that the server is reachable on the network.
 
 ---
 
 **4. Why do package installation commands require `--become`?**
 
-Add your answer here.
+Installing software or managing system services requires administrator (root) privileges, but the SSH user (ubuntu) doesn't have those by default. --become tells Ansible to escalate privileges on the remote server, similar to adding sudo in front of a command, so the action is allowed to succeed.
 
 ---
 
 **5. When would you use an ad-hoc command instead of a playbook?**
 
-Add your answer here.
+Ad-hoc commands are best for quick, one-time tasks, like checking disk space, restarting a service, or installing a single package, where writing and saving a whole YAML file would be unnecessary overhead. Playbooks make more sense when the same set of actions needs to be repeated reliably over time, documented, or shared with a team.
 
 ---
 
 **6. What is one challenge you faced while setting up SSH or inventory, and how did you fix it?**
 
-Add your answer here.
-
+One issue I ran into was .venv accidentally getting tracked by Git before the .gitignore file existed, which caused pre-commit to try linting hundreds of unrelated files inside the virtual environment. I fixed it by creating the missing .gitignore file and running git rm -r --cached .venv to untrack it, after which Git and pre-commit correctly ignored the folder going forward.
 ---
 
 # Required Files
