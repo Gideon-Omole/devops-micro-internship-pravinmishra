@@ -22,13 +22,15 @@ Create separate directories and files for the Terraform infrastructure and Ansib
 
 #### Screenshot 1 — Terminal or VS Code showing the complete `mini-finance` project structure
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr1.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Created a mini-finance project directory inside the existing ansible-onboarding workspace, split into separate terraform/ and ansible/ subfolders to keep infrastructure code and deployment configuration cleanly separated, consistent with the structure used in previous assignments. Created the four required Terraform files (providers.tf, main.tf, variables.tf, outputs.tf) and the two Ansible files (inventory.ini, site.yml), along with a project README.md.
+
+Created a .gitignore file scoped to this project to exclude Terraform's working directory, state files, saved plans, crash logs, and private key file types, preventing any of these from being accidentally committed. Verified the final structure with find . -maxdepth 2 -type f | sort, confirming all required files were present before starting the actual Terraform configuration.
 
 ---
 
@@ -42,19 +44,23 @@ Use Terraform to provision an Ubuntu Virtual Machine with the required Azure net
 
 #### Screenshot 2 — Terraform code showing the `Allow-SSH` rule for port `22` and the `Allow-HTTP` rule for port `80`
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as4-scr2.png)
 
 ---
 
 #### Screenshot 3 — Terraform code showing the association between `nsg-mini-finance` and `nic-mini-finance`
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as4-scr3.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Configured the AzureRM provider and built out the full Terraform configuration for the Mini Finance infrastructure. Created a resource group, virtual network, and subnet to hold the VM, then defined a network security group with two inbound rules, one allowing SSH on port 22 restricted to my controller's public IP in slash 32 format, and one allowing HTTP on port 80 from anywhere so the website can be reached publicly.
+
+Created a static public IP address and a network interface, then explicitly associated the network security group with the network interface using a separate association resource, since Azure treats the security group and the network interface as two independent resources that need to be linked together for the firewall rules to actually take effect.
+
+Finally, defined the Ubuntu 22 point 04 virtual machine using SSH key authentication with password authentication disabled, referencing my existing public key file, and added a public IP output so the VM's address can be retrieved easily after provisioning. Ran terraform fmt to keep the configuration consistently formatted before moving on to initialization and validation.
 
 ---
 
@@ -68,19 +74,21 @@ Format and validate the Terraform configuration, review the execution plan, and 
 
 #### Screenshot 4 — End of the `terraform apply` output showing `Apply complete!` with no errors
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as4-scr4.png)
 
 ---
 
 #### Screenshot 5 — Output of `terraform output public_ip` showing the VM’s public IP address
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as4-scr5.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Ran terraform fmt and terraform init to prepare the working directory, then terraform validate and terraform plan to review the resources before applying. The plan initially failed during validation because Azure's admin_ssh_key only supports RSA keys, and my existing controller key was ED25519. Generated a separate RSA key pair specifically for Azure (id_rsa_azure) and updated the ssh_public_key_path variable to point to it, which resolved the error.
+
+Re-ran terraform plan, confirmed it showed exactly the expected 7 resources to be created with no unexpected changes or deletions, then ran terraform apply and confirmed successfully. Retrieved the VM's public IP using terraform output public_ip for use in the next tasks.
 
 ---
 
@@ -94,13 +102,13 @@ Confirm that the Ansible controller can connect to the Terraform-provisioned Azu
 
 #### Screenshot 6 — Passwordless SSH command and the returned `mini-finance` hostname
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as4-scr6.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Tested passwordless SSH access from the controller to the Azure VM using the RSA private key generated in Task 3, since the VM only trusts the matching RSA public key. The connection succeeded on the first attempt, prompting only for host fingerprint confirmation, and returned the expected hostname mini-finance with no password requested, confirming SSH key authentication was configured correctly by Terraform.
 
 ---
 
@@ -114,7 +122,7 @@ Add the Terraform-provisioned Azure VM to the Ansible inventory and confirm that
 
 #### Screenshot 7 — Ansible ping output showing `SUCCESS` and `pong` from the Azure VM
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as4-scr7.png)
 
 ---
 
@@ -123,7 +131,12 @@ Add your screenshot here.
 Copy and paste the complete contents of your `ansible/inventory.ini` file below:
 
 ```ini
-Add your inventory.ini content here.
+[web]
+20.121.193.172
+
+[web:vars]
+ansible_user=azureuser
+ansible_ssh_private_key_file=/root/.ssh/id_rsa_azure
 ```
 
 ---
@@ -145,7 +158,7 @@ Screenshot must show:
 - Nginx service configured as started and enabled
 - Beginning of Play 2 with the Git repository URL and synchronization task
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as4-scr8.png)
 
 ---
 
@@ -159,7 +172,7 @@ Screenshot must show:
 - Play 3 targeting `localhost`
 - The `uri` verification and `assert` condition
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as4-scr9.png)
 
 ---
 
@@ -168,7 +181,81 @@ Add your screenshot here.
 Copy and paste the complete contents of your `ansible/site.yml` file below:
 
 ```yaml
-Add your site.yml content here.
+---
+- name: Install and configure Nginx
+  hosts: web
+  become: true
+  tasks:
+    - name: Update apt package cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install nginx, git, and rsync
+      ansible.builtin.apt:
+        name:
+          - nginx
+          - git
+          - rsync
+        state: present
+
+    - name: Start and enable nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+- name: Clone and deploy the Mini Finance website
+  hosts: web
+  become: true
+  tasks:
+    - name: Clone or update the Mini Finance repository
+      ansible.builtin.git:
+        repo: https://github.com/pravinmishraaws/mini-finance-project
+        dest: /opt/mini-finance
+        version: main
+        force: true
+
+    - name: Synchronize website files to the web root
+      ansible.posix.synchronize:
+        src: /opt/mini-finance/
+        dest: /var/www/html/
+        delete: true
+        rsync_opts:
+          - "--exclude=.git"
+      delegate_to: "{{ inventory_hostname }}"
+      register: sync_result
+      notify: Reload nginx
+
+    - name: Set ownership of the web root
+      ansible.builtin.file:
+        path: /var/www/html/
+        owner: www-data
+        group: www-data
+        recurse: true
+
+  handlers:
+    - name: Reload nginx
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded
+
+- name: Verify the deployment from the controller
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  tasks:
+    - name: Check HTTP status of the Mini Finance site
+      ansible.builtin.uri:
+        url: "http://{{ groups['web'][0] }}"
+        status_code: 200
+      register: site_check
+
+    - name: Assert the site returned HTTP 200
+      ansible.builtin.assert:
+        that:
+          - site_check.status == 200
+        success_msg: "Mini Finance site returned HTTP {{ site_check.status }}"
 ```
 
 ---
@@ -183,25 +270,27 @@ Validate the syntax of the multi-play Ansible playbook and run it to install Ngi
 
 #### Screenshot 10 — Successful playbook syntax check showing `playbook: site.yml`
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as4-scr10.png)
 
 ---
 
 #### Screenshot 11 — Play 3 output showing the successful HTTP verification and assertion
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as4-scr11.png)
 
 ---
 
 #### Screenshot 12 — Final `PLAY RECAP` showing `failed=0` and `unreachable=0`
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as4-scr12.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Ran ansible-playbook -i inventory.ini site.yml --syntax-check first, which passed once the playbook's YAML indentation was corrected. Ran into an issue where the Git clone task had inconsistent indentation, causing a YAML parsing problem, fixed by rewriting the task block with the correct nesting so it aligned with the other tasks in the play.
+
+Also had to correct the repository URL for the Mini Finance website, since the one provided in the assignment returned a 404. Once the correct URL was in place, ran the full playbook with ansible-playbook -i inventory.ini site.yml. Play 1 installed and started Nginx, Git, and rsync successfully. Play 2 cloned the repository, synchronized the files to /var/www/html/, set ownership to www-data:www-data, and triggered the Nginx reload handler since the files had changed. Play 3 confirmed the site returned HTTP 200 from the controller. The final play recap showed failed=0 and unreachable=0 for both the VM and localhost.
 
 ---
 
@@ -215,7 +304,7 @@ Confirm that the Mini Finance website is publicly accessible through the Azure V
 
 #### Screenshot 13 — Mini Finance website successfully loading in the browser, with the Azure VM’s public IP address visible in the address bar
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as4-scr13.png)
 
 ---
 
@@ -224,7 +313,7 @@ Add your screenshot here.
 Add your deployed website URL below:
 
 ```text
-http://<PUBLIC_IP>
+http://20.121.193.172/
 ```
 
 ---
@@ -239,7 +328,7 @@ Create a `README.md` file to document the Mini Finance infrastructure and deploy
 
 #### Screenshot 14 — Completed `README.md` displayed in the VS Code Markdown preview or terminal
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as4-scr14.png)
 
 ---
 
@@ -248,7 +337,72 @@ Add your screenshot here.
 Copy and paste the complete contents of your `README.md` file below:
 
 ```markdown
-Add your README.md content here.
+# Mini Finance Deployment on Azure
+
+## Project Objective
+Provisioned an Ubuntu VM and supporting network infrastructure on Azure using
+Terraform, then used Ansible to install Nginx, clone and deploy the Mini
+Finance static website from GitHub, and verify the deployment returns
+HTTP 200.
+
+## Tools and Technologies
+- Terraform
+- Microsoft Azure
+- Ansible
+- Nginx
+- Git
+- rsync
+
+## Infrastructure Created
+- Resource Group (rg-mini-finance)
+- Virtual Network (vnet-mini-finance) and Subnet (subnet-mini-finance)
+- Network Security Group (nsg-mini-finance) with SSH restricted to my IP
+  and HTTP open to the internet
+- Static Public IP (pip-mini-finance)
+- Network Interface (nic-mini-finance), associated with the NSG
+- Ubuntu 22.04 Virtual Machine (vm-mini-finance), authenticated via SSH key
+
+## Ansible Deployment Workflow
+1. Install and configure Nginx, Git, and rsync
+2. Clone the Mini Finance repository to /opt/mini-finance, then synchronize
+   the files to /var/www/html/, excluding .git, with ownership set to
+   www-data:www-data
+3. Verify the deployment from the controller using the uri and assert
+   modules, confirming HTTP 200
+
+## Verification
+Verified the deployment two ways: through the playbook's own Play 3, which
+sent an HTTP request to the public IP and asserted a 200 response, and
+manually by opening the public IP directly in a browser and confirming the
+site loaded correctly.
+
+## Challenge and Solution
+I ran into two separate issues during this assignment. First, Terraform
+failed when creating the virtual machine because Azure's admin_ssh_key
+only supports RSA keys, and my existing SSH key was ED25519. I resolved
+this by generating a dedicated RSA key pair specifically for Azure and
+updating the Terraform configuration and Ansible inventory to reference it.
+
+Second, midway through testing, SSH access to the VM suddenly stopped
+working. I discovered my home network's public IP address had changed
+since I first ran terraform apply, which meant the Network Security
+Group's SSH rule no longer matched my current IP and was silently
+blocking me. I fixed this by updating the my_ip_cidr variable with my
+current IP and re-running terraform apply, which updated just the NSG
+rule without recreating the rest of the infrastructure.
+
+## What I Learned
+This assignment reinforced how cleanly Terraform and Ansible divide
+responsibilities: Terraform handled everything about the infrastructure
+itself, while Ansible handled everything about what runs on top of it.
+When something went wrong, that separation made it much easier to isolate
+where the problem actually was, whether it was a Terraform-level issue
+like the SSH key format, or a networking-level issue like the changed
+public IP, rather than digging through one large, undifferentiated setup
+process. I also learned firsthand how strict YAML indentation is in
+Ansible playbooks, since a single misaligned task caused a parsing error
+that wasn't obvious until I rewrote the block from scratch with consistent
+spacing.
 ```
 
 ---
@@ -259,7 +413,7 @@ Add your README.md content here.
 
 #### Screenshot 15 — Published LinkedIn post showing the text and at least one deployment screenshot
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as4-scr15.png).
 
 ---
 
@@ -267,7 +421,7 @@ Add your screenshot here.
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_devops-terraform-ansible-activity-7505972604298780672-v0RK/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
@@ -275,13 +429,13 @@ Paste your LinkedIn post URL here:
 
 **One challenge you faced and how you fixed it:**
 
-Add your answer here.
+One real obstacle came up along the way. My home network's public IP changed mid project, which silently locked me out of SSH since the security group no longer matched my current address. Once I traced it back, the fix was simple: update the allowed IP in Terraform and reapply, without touching the rest of the environment.
 
 ---
 
 **One real-world example where you can use this learning:**
 
-Add your answer here.
+This pattern, provisioning infrastructure with one tool and handling deployment with another, is exactly how real production environments are managed, since infrastructure changes rarely while application code changes often.
 
 ---
 
@@ -291,61 +445,60 @@ Answer the following in your own words:
 
 **1. What did you provision using Terraform in this assignment?**
 
-Add your answer here.
+I provisioned a full set of Azure infrastructure: a resource group, a virtual network and subnet, a network security group with rules for SSH and HTTP, a static public IP address, a network interface associated with the security group, and an Ubuntu virtual machine configured with SSH key authentication and password authentication disabled.
 
 ---
 
 **2. What did Ansible configure and deploy in this assignment?**
 
-Add your answer here.
+Ansible installed and started Nginx, Git, and rsync on the VM, cloned the Mini Finance website repository from GitHub directly onto the server, synchronized the website files into the Nginx web root with the correct ownership, and then verified from my own machine that the site was actually reachable and returning a successful HTTP response.
 
 ---
 
 **3. Why is SSH access on port `22` restricted to your public IP address?**
 
-Add your answer here.
+Restricting SSH to a single known IP address significantly reduces the attack surface, since it means the only machine that can even attempt to authenticate is mine, rather than leaving port 22 exposed to anyone on the internet who could attempt brute-force login attempts or exploit vulnerabilities.
 
 ---
 
 **4. Why is HTTP port `80` open to the internet?**
 
-Add your answer here.
-
+Add your answer here.The whole purpose of the website is to be publicly accessible, so port 80 needs to accept traffic from any visitor. Unlike SSH, which is an administrative access point that only I should use, HTTP is the actual product being served and is meant to be reached by anyone.
 ---
 
 **5. What is the purpose of the Ansible inventory file?**
 
-Add your answer here.
+The inventory file tells Ansible which servers exist and how to connect to them, including the IP address, SSH username, and private key path. It lets the rest of the playbook refer to servers by group name instead of hardcoding connection details into every task.
 
 ---
 
 **6. Why does the playbook use separate plays for install, deploy, and verify?**
 
-Add your answer here.
+Splitting these into separate plays keeps each one focused on a single responsibility, which makes the playbook easier to read, debug, and maintain. Installing software rarely needs to change once it is done, while deploying website content happens more frequently, and verification is a completely different concern that runs locally rather than on the managed server, so keeping them apart avoids mixing unrelated logic together.
 
 ---
 
 **7. Why is `rsync` useful when deploying website files?**
 
-Add your answer here.
+rsync only copies files that have actually changed instead of transferring everything every time, which makes deployments faster and avoids unnecessary disruption. It also supports options like excluding specific files or directories, such as excluding the .git folder when syncing a cloned repository into a web root.
 
 ---
 
 **8. What does the Ansible `uri` module verify in this assignment?**
 
-Add your answer here.
+The uri module sends an actual HTTP request to the server's public IP address and checks the returned status code, confirming that Nginx is genuinely running and serving the website correctly, rather than just assuming the deployment succeeded because no errors were reported earlier in the playbook.
 
 ---
 
 **9. What issue did you face during this assignment, and how did you fix it?**
 
-Add your answer here.
+Beyond the IP address issue mentioned above, I also hit a problem where Azure rejected my existing SSH key because it only accepts RSA keys, not the ED25519 key I normally use. I generated a separate RSA key pair specifically for this Azure VM and updated both my Terraform configuration and Ansible inventory to reference it.
 
 ---
 
 **10. What did you learn from using Terraform and Ansible together?**
 
-Add your answer here.
+I learned how naturally the two tools complement each other when their responsibilities are kept separate. Terraform focused entirely on creating and describing the infrastructure, while Ansible focused entirely on configuring and deploying onto that infrastructure once it existed. This separation made troubleshooting far more straightforward, since I always knew whether a problem belonged to the infrastructure layer or the configuration layer, instead of untangling one large, mixed process.
 
 ---
 
