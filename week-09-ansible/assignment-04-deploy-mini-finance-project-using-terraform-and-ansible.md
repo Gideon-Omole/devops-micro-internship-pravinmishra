@@ -413,7 +413,7 @@ spacing.
 
 #### Screenshot 15 — Published LinkedIn post showing the text and at least one deployment screenshot
 
-![screenshot-15](screenshots/gideon-omole-as4-scr15.png).
+![screenshot-15](screenshots/gideon-omole-as4-scr15.png)
 
 ---
 

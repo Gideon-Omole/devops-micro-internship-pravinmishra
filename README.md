@@ -139,8 +139,8 @@ Week 08 → Terraform
 | 06 | AWS Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-cloudcomputing-devops-ugcPost-7495160589305090048-6RtO/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/week-6-of-aws-cloud-from-a-static-portfolio-to-a-production-style-three-tier-deployment-dc5f265a278f |
 | 07 | Azure Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_azure-agenticai-claudecode-activity-7501303168073592832-7Bu4/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/building-on-azure-from-cloud-deployment-to-security-auditing-99235e3993ea?sharedUserId=gideonomole9 |
 | 08 | Terraform | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-terraform-devops-ugcPost-7504287752662937607-q1aH/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/building-production-infrastructure-with-an-ai-engineering-assistant-what-i-learned-deploying-a-debe485173d0 |
-| 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
-| 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
+| 09 | Ansible | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_devops-terraform-ansible-ugcPost-7506318740800602112-9JzC/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/building-a-devops-workflow-with-ansible-and-terraform-six-projects-start-to-finish-acff659854ca |
+| 10 | Azure DevOps (CI/CD) | 🔄 In Progress | 🔄 In Progress | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
 | 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |

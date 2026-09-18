@@ -437,13 +437,13 @@ A misclassified risk, a hallucinated understanding of a task's real effect, or a
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_ansible-agenticai-claudecode-share-7506634290215174144-qrHJ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![screenshot-23](screenshots/gideon-omole-as6-scr23.png)
 
 ---
 
