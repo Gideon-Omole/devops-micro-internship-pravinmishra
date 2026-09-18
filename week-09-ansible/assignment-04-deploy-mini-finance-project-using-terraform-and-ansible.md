@@ -463,7 +463,7 @@ Restricting SSH to a single known IP address significantly reduces the attack su
 
 **4. Why is HTTP port `80` open to the internet?**
 
-Add your answer here.The whole purpose of the website is to be publicly accessible, so port 80 needs to accept traffic from any visitor. Unlike SSH, which is an administrative access point that only I should use, HTTP is the actual product being served and is meant to be reached by anyone.
+The whole purpose of the website is to be publicly accessible, so port 80 needs to accept traffic from any visitor. Unlike SSH, which is an administrative access point that only I should use, HTTP is the actual product being served and is meant to be reached by anyone.
 ---
 
 **5. What is the purpose of the Ansible inventory file?**
