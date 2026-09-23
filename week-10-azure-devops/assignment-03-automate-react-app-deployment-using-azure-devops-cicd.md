@@ -37,7 +37,7 @@ Add a screenshot of Azure Repos showing:
 * `main` branch
 * Project files
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as3-scr1.png)
 
 ---
 
@@ -81,7 +81,10 @@ Add a screenshot of the Azure Pipeline YAML open in the editor showing:
 * Publish stage
 * Deploy stage
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as3-scr2.png)
+![screenshot-2](screenshots/gideon-omole-as3-scr2.1.png)
+![screenshot-2](screenshots/gideon-omole-as3-scr2.2.png)
+![screenshot-2](screenshots/gideon-omole-as3-scr2.3.png)
 
 > Do not expose passwords, private keys, tokens, or cloud credentials.
 
@@ -104,7 +107,7 @@ Add a screenshot of one Azure DevOps pipeline run showing all four stages succee
 * Publish
 * Deploy
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as3-scr3.png)
 
 ---
 
@@ -122,7 +125,7 @@ Add a screenshot of the pipeline SSH verification log or VM terminal showing the
 
 `/var/www/html`
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as3-scr4.png)
 
 ---
 
@@ -143,7 +146,7 @@ Add a browser screenshot showing:
 * Your Full Name
 * Deployment date
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as3-scr5.png)
 
 ## Final Application URL
 
@@ -151,7 +154,7 @@ Add your screenshot here.
 
 Replace the placeholder and paste your final application URL below:
 
-[Paste your final application URL here.]
+[http://18.215.146.10/]
 
 ---
 
@@ -159,7 +162,15 @@ Replace the placeholder and paste your final application URL below:
 
 Write a short explanation of the CI/CD workflow you created.
 
-[Write your summary here.]
+[I built a four stage Azure DevOps pipeline that automatically builds, tests, and deploys a React application to an Ubuntu server whenever a change is pushed to the main branch.
+
+The pipeline runs on my self hosted Linux agent. In the Build stage, it installs Node.js and compiles the React source code into a production ready set of static files, then saves that output as a pipeline artifact. The Test stage installs the dependencies again on a fresh job and runs the application's automated tests in non interactive mode, so the pipeline never waits on a process expecting user input. The Publish stage downloads the build artifact, verifies that the required files are present, and republishes it as an approved deployment package. The Deploy stage downloads that package and copies it over SSH to the target Ubuntu server, placing the files directly into Nginx's web root, then runs a remote check to confirm the deployment succeeded and the site is responding.
+
+Each stage only proceeds if the one before it succeeded, so a failed build or a failing test can never reach the live server.
+
+The target server itself was provisioned with Terraform and configured with Ansible, which installed Nginx, cleared out the previous project's files, and set up routing so the React application's client side routes work correctly.
+
+The pipeline uses an SSH service connection stored in Azure DevOps, so the server's credentials never appear in the pipeline code or the repository.]
 
 ---
 
@@ -174,11 +185,11 @@ Add a screenshot of your LinkedIn post showing:
 * Post text
 * At least one image or link
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as3-scr6.png)
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here.]
+[https://www.linkedin.com/posts/gideon-omole-5ba318180_azuredevops-cicd-react-share-7508449279586299906-ZlNB/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4]
 
 > Do not expose VM passwords, tokens, private keys, cloud credentials, or other sensitive information.
 
