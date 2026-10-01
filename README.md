@@ -97,8 +97,8 @@ Week 08 → Terraform
 Week 09 → Ansible
 [![Week 09 – Ansible](./badges/week-09.svg)](./week-09-ansible/) 
 
-<!-- Week 10 → Azure DevOps CI/CD -->
-<!-- [![Week 10 – CI/CD](./badges/week-10.svg)](./week-10-azure-devops/) -->
+Week 10 → Azure DevOps CI/CD 
+[![Week 10 – CI/CD](./badges/week-10.svg)](./week-10-azure-devops/) 
 
 <!-- Week 11 → Docker -->
 <!-- [![Week 11 – Docker](./badges/week-11.svg)](./week-11-docker/) -->
@@ -140,7 +140,7 @@ Week 09 → Ansible
 | 07 | Azure Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_azure-agenticai-claudecode-activity-7501303168073592832-7Bu4/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/building-on-azure-from-cloud-deployment-to-security-auditing-99235e3993ea?sharedUserId=gideonomole9 |
 | 08 | Terraform | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_aws-terraform-devops-ugcPost-7504287752662937607-q1aH/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/building-production-infrastructure-with-an-ai-engineering-assistant-what-i-learned-deploying-a-debe485173d0 |
 | 09 | Ansible | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_devops-terraform-ansible-ugcPost-7506318740800602112-9JzC/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/building-a-devops-workflow-with-ansible-and-terraform-six-projects-start-to-finish-acff659854ca |
-| 10 | Azure DevOps (CI/CD) | 🔄 In Progress | 🔄 In Progress | — | — |
+| 10 | Azure DevOps (CI/CD) | 🔄 In Progress | 🔄 In Progress | https://www.linkedin.com/posts/gideon-omole-5ba318180_azuredevops-terraform-ansible-ugcPost-7509582278201589760-vQcN/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
 | 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |

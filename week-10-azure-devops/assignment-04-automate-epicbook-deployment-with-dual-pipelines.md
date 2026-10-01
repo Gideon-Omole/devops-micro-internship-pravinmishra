@@ -70,7 +70,7 @@ Add a screenshot of the Infrastructure Pipeline run showing:
 * `backend_private_ip`
 * `mysql_fqdn`
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr1.png)
 
 > Do not expose the MySQL password, Client Secret, Terraform state, SSH private key, or another sensitive value.
 
@@ -86,7 +86,9 @@ Add a screenshot of the Azure Portal Resource Group overview showing:
 * Azure Database for MySQL Flexible Server
 * Related EpicBook resources
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as4-scr2.png)
+![screenshot-1](screenshots/gideon-omole-as4-scr2.1.png)
+![screenshot-1](screenshots/gideon-omole-as4-scr2.2.png)
 
 > Hide sensitive IDs, credentials, and database details.
 
@@ -124,7 +126,8 @@ Run the Application Pipeline to configure the VMs, deploy EpicBook, and verify t
 
 Add a screenshot of the Application Pipeline run summary showing all required stages or jobs succeeded.
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as4-scr3.png)
+![screenshot-3](screenshots/gideon-omole-as4-scr3.1.png)
 
 ---
 
@@ -137,7 +140,7 @@ Add a screenshot of the Application Pipeline log showing:
 * Zero failed hosts
 * Zero unreachable hosts
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as4-scr4.png)
 
 > Do not expose the SSH private key, MySQL password, Client Secret, or complete database connection string.
 
@@ -162,7 +165,9 @@ Add a browser screenshot showing:
 
 The screenshot may show a product, cart, or successful order view.
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as4-scr5.png)
+![screenshot-5](screenshots/gideon-omole-as4-scr5.1.png)
+![screenshot-5](screenshots/gideon-omole-as4-scr5.2.png)
 
 > Do not expose credentials or sensitive information.
 
@@ -172,15 +177,15 @@ Add your screenshot here.
 
 ## Frontend Application URL
 
-[Paste your final EpicBook application URL here.]
+[http://32.196.142.3/]
 
 ## Infrastructure Repository URL
 
-[Paste your Infrastructure Repository URL here.]
+[https://github.com/Gideon-Omole/infra-epicbook]
 
 ## Application Repository URL
 
-[Paste your Application Repository URL here.]
+[https://github.com/Gideon-Omole/theepicbook]
 
 ---
 
@@ -188,7 +193,13 @@ Add your screenshot here.
 
 Write a short explanation of why separate Infrastructure and Application Repositories were used.
 
-[Write your explanation here.]
+[I split the project into two separate repositories: infra-epicbook for Terraform infrastructure and theepicbook for application code and Ansible automation. I did this to follow a structure commonly used in real organizations, where infrastructure and application teams work separately.
+
+Infrastructure changes and application changes can have different levels of risk and usually go through different review and release processes. For example, changing a security group or increasing the size of a database can affect the entire environment, so those changes should have their own review and approval process. A normal application code change does not usually need the same level of review.
+
+Keeping the repositories separate also helps with security. Each pipeline only gets access to the resources and secrets it needs. The Infrastructure Pipeline has access to the credentials required to manage the infrastructure, while the Application Pipeline only needs the access required to deploy and configure the application. This reduces unnecessary access to sensitive information.
+
+It also keeps the Git history easier to understand. Someone reviewing infra-epicbook can focus on infrastructure changes without having application features mixed into the same repository.]
 
 ---
 
@@ -201,7 +212,14 @@ Write a short explanation of how the following non-sensitive Terraform outputs w
 * `backend_private_ip`
 * `mysql_fqdn`
 
-[Write your explanation here.]
+[The Infrastructure Pipeline creates the AWS resources with Terraform. After `terraform apply` completes, it outputs four non-sensitive values: `app_public_ip`, `backend_ansible_host`, `backend_private_ip`, and `mysql_fqdn`.
+
+I manually copied these values into the Application Repository. The IP addresses were added to the Ansible inventory, while the backend private IP and MySQL hostname were added to `group_vars`.
+
+Sensitive information such as database passwords and AWS credentials remained in Azure DevOps secret variables and was not stored in either repository.
+
+This manual handoff keeps the infrastructure and application repositories separate. It could later be automated using a secure shared location for these non-sensitive values.
+]
 
 ---
 
@@ -216,11 +234,11 @@ Add a screenshot of your LinkedIn post showing:
 * Post text
 * At least one image or link
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as4-scr6.png)
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here.]
+[https://www.linkedin.com/posts/gideon-omole-5ba318180_azuredevops-terraform-ansible-ugcPost-7509582278201589760-vQcN/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4]
 
 Your post must include:
 
