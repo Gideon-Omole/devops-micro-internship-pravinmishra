@@ -30,7 +30,7 @@ cat .dockerignore
 
 The file must exclude `node_modules`, `build`, and `.env`.
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as2-scr1.png)
 
 ---
 
@@ -46,7 +46,7 @@ Create a baseline single-stage Docker image and run the application on port 3000
 
 Add a screenshot showing the completed `Dockerfile.single`.
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as2-scr2.png)
 
 ---
 
@@ -60,7 +60,7 @@ http://localhost:3000
 
 Ensure that your full name is visible in the application.
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as2-scr3.png)
 
 ---
 
@@ -76,7 +76,7 @@ Create an optimized multi-stage Docker image with separate builder and Nginx run
 
 Add a screenshot showing the completed multi-stage `Dockerfile`.
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as2-scr4.png)
 
 ---
 
@@ -90,7 +90,7 @@ http://localhost
 
 Ensure that your full name is visible in the application.
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as2-scr5.png)
 
 ---
 
@@ -117,7 +117,7 @@ react-single:latest
 react-multistage:latest
 ```
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as2-scr6.png)
 
 ---
 
@@ -126,15 +126,15 @@ Add your screenshot here.
 Record the image sizes and calculate the reduction using the same unit for both images.
 
 ```text
-Single-stage image size: Add size here
+Single-stage image size: 2.24 GB (2,240 MB)  [react-single:latest]
 
-Multi-stage image size: Add size here
+Multi-stage image size: 95 MB  [react-multistage:latest]
 
 Percentage reduction =
 ((Single-stage image size − Multi-stage image size)
 ÷ Single-stage image size) × 100
 
-Percentage reduction: Add result here
+Percentage reduction: ((2240 MB − 95 MB) ÷ 2240 MB) × 100 = 95.76%
 ```
 
 ---
@@ -156,7 +156,7 @@ Write a short analysis of 5–8 lines covering:
 - How smaller images improve image pull and deployment speed
 - One Docker build-caching optimization you used
 
-Write your analysis here.
+The single-stage image (react-app:single) was 505 MB, while the multi-stage image (react-multistage:latest) was 26.6 MB, representing a 94.7% reduction in image size. This significant reduction is because the single-stage image contains the Node.js runtime, npm, installed dependencies, source code, and build environment, while the multi-stage image keeps only the compiled React files and Nginx runtime. Removing these unnecessary components also reduces the attack surface because there are fewer packages and tools in the production container that could contain vulnerabilities. The smaller image also requires less data to be transferred when pulled from a container registry, which can improve deployment and scaling speed. For build caching, package*.json was copied before the application source code and npm ci was run before COPY . ., allowing Docker to reuse the dependency-installation layer when only source-code files change.
 
 ---
 
@@ -191,13 +191,13 @@ Create a LinkedIn post describing what you built, what a multi-stage Docker buil
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_devops-docker-learninginpublic-ugcPost-7512947127858290691-a9J4/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
 #### LinkedIn Post Screenshot
 
-Add a screenshot of the published LinkedIn post here.
+![screenshot-7](screenshots/gideon-omole-as2-scr7.png)
 
 ---
 
