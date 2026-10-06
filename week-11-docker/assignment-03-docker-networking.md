@@ -28,7 +28,7 @@ docker network ls
 
 The output must include the default `bridge`, `host`, and `none` networks.
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as3-scr1.png)
 
 ---
 
@@ -40,7 +40,7 @@ Add a screenshot of the terminal showing successful completion of:
 docker pull nginx:alpine
 ```
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as3-scr2.png)
 
 ---
 
@@ -58,7 +58,7 @@ The output must show the running `myweb` container with:
 0.0.0.0:80->80/tcp
 ```
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as3-scr3.png)
 
 ---
 
@@ -67,12 +67,12 @@ Add your screenshot here.
 Add a browser screenshot showing the Nginx Welcome Page at:
 
 ```text
-http://<YOUR-VM-PUBLIC-IP>
+http://18.212.115.134
 ```
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as3-scr4.png)
 
 ---
 
@@ -92,7 +92,7 @@ Add a screenshot of the terminal showing `mynetwork` in:
 docker network ls
 ```
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as3-scr5.png)
 
 ---
 
@@ -106,7 +106,7 @@ docker ps
 
 The output must show both `web` and `client` containers running without published host ports.
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as3-scr6.png)
 
 ---
 
@@ -120,7 +120,7 @@ docker exec client wget -qO- http://web
 
 The output must display the Nginx Welcome Page HTML.
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as3-scr7.png)
 
 ---
 
@@ -134,7 +134,7 @@ docker network inspect mynetwork
 
 The output must show both `web` and `client` connected to `mynetwork`.
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as3-scr8.png)
 
 ---
 
@@ -156,7 +156,7 @@ docker network ls
 
 The output must include both `frontend-network` and `backend-network`.
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as3-scr9.png)
 
 ---
 
@@ -174,7 +174,7 @@ The output must show:
 - `backend` without a published host port
 - `db` without a published host port
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as3-scr10.png)
 
 ---
 
@@ -188,7 +188,7 @@ docker network inspect frontend-network
 
 The output must show `frontend` and `backend`.
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as3-scr11.png)
 
 ---
 
@@ -202,7 +202,7 @@ docker network inspect backend-network
 
 The output must show `backend` and `db`.
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as3-scr12.png)
 
 ---
 
@@ -216,7 +216,7 @@ docker exec frontend wget -qO- http://backend
 
 The output must display the Nginx Welcome Page HTML.
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as3-scr13.png)
 
 ---
 
@@ -224,7 +224,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing a successful connection to `db` on port `27017` from the `backend` container.
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as3-scr14.png)
 
 ---
 
@@ -238,7 +238,7 @@ The output must include:
 Expected result: frontend cannot reach db
 ```
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as3-scr15.png)
 
 ---
 
@@ -247,12 +247,12 @@ Add your screenshot here.
 Add a browser screenshot showing the Nginx Welcome Page from the `frontend` container at:
 
 ```text
-http://<YOUR-VM-PUBLIC-IP>
+http://18.212.115.134
 ```
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as3-scr16.png)
 
 ---
 
@@ -274,7 +274,7 @@ docker ps
 
 The output must show the running `fastapp` container.
 
-Add your screenshot here.
+![screenshot-17](screenshots/gideon-omole-as3-scr17.png)
 
 ---
 
@@ -292,7 +292,7 @@ The output must confirm:
 "NetworkMode": "host"
 ```
 
-Add your screenshot here.
+![screenshot-18](screenshots/gideon-omole-as3-scr18.png)
 
 ---
 
@@ -301,12 +301,12 @@ Add your screenshot here.
 Add a browser screenshot showing the Nginx Welcome Page at:
 
 ```text
-http://<YOUR-VM-PUBLIC-IP>
+http://18.212.115.134/
 ```
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-19](screenshots/gideon-omole-as3-scr19.png)
 
 ---
 
@@ -319,7 +319,7 @@ docker stop fastapp
 docker rm fastapp
 ```
 
-Add your screenshot here.
+![screenshot-20](screenshots/gideon-omole-as3-scr20.png)
 
 ---
 
@@ -332,7 +332,17 @@ Write a short note explaining:
 - Why the frontend could not access the database in Task 3
 - The difference between bridge mode and host network mode
 
-Write your note here.
+**Default bridge networking**
+When I ran Nginx on the default bridge network, the container got a private IP address. To reach it from outside, I had to publish a port with `-p 80:80`. Then I could open it using the VM's public IP.
+
+**Container-name communication on a custom bridge network**
+On the custom network `mynetwork`, containers can find each other by name. The `client` container reached the `web` container using `http://web`. I didn't need an IP address or a published port.
+
+**Why the frontend could not access the database in Task 3**
+The `frontend` was only on `frontend-network`, and the `db` was only on `backend-network`. Docker does not pass traffic between different networks, so the frontend could not even find the database. Only the `backend` was on both networks, so it could talk to both.
+
+**Bridge mode vs host network mode**
+In bridge mode, each container has its own network and I must publish ports to reach it. This keeps containers isolated. In host mode, the container uses the VM's network directly, so no `-p` is needed. But there is no isolation, and the container uses the VM's ports (like port 80) directly.
 
 ---
 
@@ -348,13 +358,13 @@ Create a LinkedIn post about the Docker networking modes explored, one key lesso
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_docker-devops-ugcPost-7513186262694940672-KR4a/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
 #### LinkedIn Post Screenshot
 
-Add a screenshot of the published LinkedIn post here.
+![screenshot-21](screenshots/gideon-omole-as3-scr21.png)
 
 ---
 
