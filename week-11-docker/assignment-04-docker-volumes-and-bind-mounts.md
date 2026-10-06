@@ -26,7 +26,7 @@ Add a screenshot of the terminal showing successful completion of:
 docker pull nginx:alpine
 ```
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr1.png)
 
 ---
 
@@ -38,7 +38,7 @@ Add a screenshot of the terminal showing the created host directory:
 $HOME/nginx-logs
 ```
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as4-scr2.png)
 
 ---
 
@@ -56,7 +56,7 @@ The output must show the `myweb` container with:
 0.0.0.0:80->80/tcp
 ```
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as4-scr3.png)
 
 ---
 
@@ -65,12 +65,12 @@ Add your screenshot here.
 Add a browser screenshot showing the Nginx Welcome Page at:
 
 ```text
-http://<YOUR-VM-PUBLIC-IP>
+http://100.31.60.148/
 ```
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as4-scr4.png)
 
 ---
 
@@ -84,7 +84,7 @@ $HOME/nginx-logs
 
 The output must show `access.log`, `error.log`, and an access-log entry created when you opened the Nginx page.
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as4-scr5.png)
 
 ---
 
@@ -97,7 +97,7 @@ docker stop myweb
 docker rm myweb
 ```
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as4-scr6.png)
 
 ---
 
@@ -111,7 +111,7 @@ $HOME/nginx-logs
 
 The access log must retain its content after the container has been removed.
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as4-scr7.png)
 
 ---
 
@@ -127,7 +127,7 @@ Deploy backend and frontend containers that share data through a named Docker Vo
 
 Add a screenshot of the terminal showing the `two-tier-app` project structure, including separate `backend` and `frontend` directories with a `Dockerfile` and `index.js` file in each.
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as4-scr8.png)
 
 ---
 
@@ -139,7 +139,7 @@ Add a screenshot of the terminal showing `mynetwork` in:
 docker network ls
 ```
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as4-scr9.png)
 
 ---
 
@@ -151,7 +151,7 @@ Add a screenshot of the terminal showing `shared-data` in:
 docker volume ls
 ```
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as4-scr10.png)
 
 ---
 
@@ -159,7 +159,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing the completed backend `Dockerfile`.
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as4-scr11.png)
 
 ---
 
@@ -167,7 +167,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing successful completion of the `backend-app:latest` image build.
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as4-scr12.png)
 
 ---
 
@@ -181,7 +181,7 @@ docker ps
 
 The output must show the running `backend` container.
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as4-scr13.png)
 
 ---
 
@@ -189,7 +189,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing the completed frontend `Dockerfile`.
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as4-scr14.png)
 
 ---
 
@@ -197,7 +197,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing successful completion of the `frontend-app:latest` image build.
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as4-scr15.png)
 
 ---
 
@@ -215,7 +215,7 @@ The output must show both `backend` and `frontend` containers running. Only `fro
 0.0.0.0:80->80/tcp
 ```
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as4-scr16.png)
 
 ---
 
@@ -229,7 +229,7 @@ The output must include:
 Data written: Hello from Backend!
 ```
 
-Add your screenshot here.
+![screenshot-17](screenshots/gideon-omole-as4-scr17.png)
 
 ---
 
@@ -243,7 +243,7 @@ Hello from Backend!
 
 Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-18](screenshots/gideon-omole-as4-scr18.png)
 
 ---
 
@@ -257,7 +257,7 @@ Test Data 1
 
 Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-19](screenshots/gideon-omole-as4-scr19.png)
 
 ---
 
@@ -271,7 +271,7 @@ Test Data 2 - New Update
 
 Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-20](screenshots/gideon-omole-as4-scr20.png)
 
 ---
 
@@ -279,7 +279,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing the `frontend` and `backend` containers removed and recreated using the same `shared-data` Docker Volume.
 
-Add your screenshot here.
+![screenshot-21](screenshots/gideon-omole-as4-scr21.png)
 
 ---
 
@@ -295,7 +295,7 @@ This proves that the `shared-data` Docker Volume outlived both application conta
 
 Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-22](screenshots/gideon-omole-as4-scr22.png)
 
 ---
 
@@ -308,13 +308,43 @@ Write a short explanation covering:
 - How Task 2 proved Docker Volume persistence
 - Why Docker Volumes are commonly used for application data
 
-Write your explanation here.
+## Bind Mount vs Docker Volume
+
+A **bind mount** links a specific folder that you choose on the host machine (such as `~/nginx-logs`) to a folder inside the container. A **Docker Volume** is storage that Docker creates and manages itself (such as `shared-data`), so you don't pick or depend on a particular host path.
+
+- Bind mounts are useful when you need direct access to files on the host.
+- Volumes are better when data needs to be managed independently of any one container or shared between containers.
+
+## How Task 1 Proved Bind Mount Persistence
+
+1. The Nginx container `myweb` was started with `-v ~/nginx-logs:/var/log/nginx`, so Nginx wrote its `access.log` and `error.log` into a folder on the host.
+2. After visiting `http://localhost`, `ls ~/nginx-logs` showed the log files.
+3. The container was stopped and removed with `docker stop myweb` and `docker rm myweb`.
+4. Running `ls ~/nginx-logs` again still showed the same files.
+
+This proved the data lived on the host and not inside the container.
+
+## How Task 2 Proved Docker Volume Persistence
+
+1. The backend and frontend containers both mounted the `shared-data` volume at `/data`.
+2. The backend wrote `message.txt` to the volume, and the frontend displayed its contents in the browser, showing both containers were using the same storage.
+3. Updating the file and refreshing the page showed the new text each time.
+4. Running `docker restart backend frontend` and refreshing again still showed the message.
+
+This proved the data lived in the volume and not in the containers' own lifecycles.
+
+## Why Docker Volumes Are Commonly Used for Application Data
+
+- **Independent lifecycle:** Volumes exist separately from containers, so data survives restarts, replacements, and removals.
+- **Easy sharing:** A volume can be attached to several containers at once.
+- **Portability:** Docker manages the storage location, so applications don't depend on a specific host folder layout.
+- **Good fit for:** databases, uploaded files, and shared application data.
 
 ---
 
 # Public Application URL
 
-**Application URL:** `Add your VM public IP URL here`
+**Application URL:** `http://100.31.60.148/`
 
 ---
 
@@ -330,13 +360,13 @@ Create a LinkedIn post about Docker Volumes and Bind Mounts, including one diffe
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_docker-devops-containers-ugcPost-7513266437487267840-OBqN/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
 #### LinkedIn Post Screenshot
 
-Add a screenshot of the published LinkedIn post here. Include a screenshot of the application displaying shared data.
+![screenshot-23](screenshots/gideon-omole-as4-scr23.png)
 
 ---
 
