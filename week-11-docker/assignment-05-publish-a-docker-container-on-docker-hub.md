@@ -26,7 +26,7 @@ Add a screenshot of Docker Hub showing your newly created public repository:
 my-react-app
 ```
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as5-scr1.png)
 
 ---
 
@@ -40,7 +40,7 @@ Login Succeeded
 
 Ensure that your full name is visible and that no password, Personal Access Token, or device code is exposed.
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as5-scr2.png)
 
 ---
 
@@ -54,7 +54,7 @@ docker image ls <YOUR_DOCKERHUB_USERNAME>/my-react-app
 
 The output must show the `latest` tag.
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as5-scr3.png)
 
 ---
 
@@ -68,7 +68,7 @@ docker push <YOUR_DOCKERHUB_USERNAME>/my-react-app:latest
 
 The output must include a pushed status or image digest.
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as5-scr4.png)
 
 ---
 
@@ -76,7 +76,7 @@ Add your screenshot here.
 
 Add a screenshot of your Docker Hub repository showing the uploaded `latest` image tag.
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as5-scr5.png)
 
 ---
 
@@ -88,7 +88,7 @@ Add a screenshot of the terminal showing:
 - Successful `docker pull` output
 - `docker image ls` showing the pulled image
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as5-scr6.png)
 
 ---
 
@@ -106,7 +106,7 @@ The output must show the running `react-container` with:
 0.0.0.0:80->80/tcp
 ```
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as5-scr7.png)
 
 ---
 
@@ -115,30 +115,34 @@ Add your screenshot here.
 Add a browser screenshot showing the React application at:
 
 ```text
-http://<YOUR-VM-PUBLIC-IP>
+http://54.226.39.195/
 ```
 
 Ensure that the VM public IP is visible in the address bar. Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as5-scr8.png)
 
 ---
 
 # Docker Hub Repository URL
 
-**Repository URL:** `Add your Docker Hub repository URL here`
+**Repository URL:** `https://hub.docker.com/repository/docker/giddyvibes/my-react-app/general`
 
 ---
 
 # Registry and Image Tagging Notes
 
-Write a short explanation covering:
+## Why image tagging is required before pushing to Docker Hub
 
-- Why image tagging is required before pushing to Docker Hub
-- Why a container registry is useful in DevOps workflows
-- Why production deployments should use versioned image tags instead of relying only on `latest`
+Docker Hub needs to know which account and repository an image belongs to. A local name like `react-multistage:latest` carries no owner information, so Docker has no idea where to send it. Tagging the image as `<username>/my-react-app:latest` gives it a name in the `username/repository:tag` format, which tells Docker Hub exactly where to store it. Tagging doesn't copy the image. It just adds a second name to the same image, which is why both names show the same image ID in `docker image ls`.
 
-Write your explanation here.
+## Why a container registry is useful in DevOps workflows
+
+A registry is a central place to store and share images. Once an image is pushed, any machine with access can pull and run it without rebuilding from source. This means the same tested image can move through development, testing, and production unchanged, which keeps environments consistent and avoids "it works on my machine" problems. It also fits naturally into CI/CD pipelines, where one stage builds and pushes the image and later stages pull and deploy it. In this assignment, removing the local images and pulling the image back from Docker Hub showed that the registry copy is complete and runs on its own.
+
+## Why production deployments should use versioned image tags instead of relying only on `latest`
+
+`latest` is just a label that can be moved to a different image at any time, so it doesn't tell you what is actually running. Two servers pulling `latest` on different days could end up with different code. Versioned tags like `v1.0.1`, `build-125`, or `commit-a1b2c3d` point to one specific build, so every deployment is traceable. If a release causes problems, you can roll back by redeploying the previous tag. Versioned tags also make debugging, auditing, and team communication clearer, because everyone knows exactly which version is live.
 
 ---
 
@@ -162,13 +166,13 @@ Include:
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/gideon-omole-5ba318180_docker-devops-aws-share-7513574114071207937-FN5a/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 ---
 
 #### LinkedIn Post Screenshot
 
-Add a screenshot of the published LinkedIn post here.
+![screenshot-9](screenshots/gideon-omole-as5-scr9.png)
 
 ---
 
