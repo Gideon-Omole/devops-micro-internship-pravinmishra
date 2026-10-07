@@ -30,7 +30,7 @@ backend/
 docker-compose.yml
 ```
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as6-scr1.png)
 
 ---
 
@@ -47,7 +47,7 @@ backend/.dockerignore
 
 Ensure that no real passwords, tokens, or secrets are visible.
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as6-scr2.png)
 
 ---
 
@@ -63,7 +63,7 @@ Prepare Dockerfiles for the frontend and backend services and build both service
 
 Add a screenshot showing the completed `frontend/Dockerfile`.
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as6-scr3.png)
 
 ---
 
@@ -71,7 +71,7 @@ Add your screenshot here.
 
 Add a screenshot showing the completed `backend/Dockerfile`.
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as6-scr4.png)
 
 ---
 
@@ -83,7 +83,7 @@ Add a screenshot of the terminal showing successful completion of:
 docker compose build
 ```
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as6-scr5.png)
 
 ---
 
@@ -105,7 +105,7 @@ Add a screenshot showing the MySQL service in `docker-compose.yml`, including:
 - `mysql_data` volume mount
 - No published MySQL port
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as6-scr6.png)
 
 ---
 
@@ -118,7 +118,7 @@ Add a screenshot showing the backend service configuration, including:
 - Browser frontend origin configured for CORS
 - Published backend port
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as6-scr7.png)
 
 ---
 
@@ -130,7 +130,7 @@ Add a screenshot showing the frontend service configuration, including:
 - `depends_on` for the backend service
 - Browser-facing `NEXT_PUBLIC_API_URL`
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as6-scr8.png)
 
 ---
 
@@ -138,7 +138,7 @@ Add your screenshot here.
 
 Add a screenshot showing the `mysql_data` volume definition in `docker-compose.yml`.
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as6-scr9.png)
 
 ---
 
@@ -160,7 +160,7 @@ docker compose ps
 
 The output must show the MySQL, backend, and frontend services running. MySQL must show as healthy.
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as6-scr10.png)
 
 ---
 
@@ -174,7 +174,7 @@ docker compose logs mysql backend --tail=50
 
 The logs must show MySQL readiness and successful backend database connection.
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as6-scr11.png)
 
 ---
 
@@ -192,7 +192,7 @@ Add a browser screenshot showing successful user registration or login.
 
 Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as6-scr12.png)
 
 ---
 
@@ -202,7 +202,7 @@ Add a browser screenshot showing a created book review visible in the applicatio
 
 Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as6-scr13.png)
 
 ---
 
@@ -213,7 +213,8 @@ Add a browser developer-tools screenshot with:
 - The Network tab showing a successful API request
 - The Console drawer showing no CORS error after the API interaction
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as6-scr14.png)
+![screenshot-14](screenshots/gideon-omole-as6-scr14.1.png)
 
 ---
 
@@ -231,7 +232,7 @@ Add a browser screenshot showing the registered user or created review before th
 
 Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as6-scr15.png)
 
 ---
 
@@ -247,7 +248,7 @@ docker compose ps
 
 Do not use `docker compose down -v`.
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as6-scr16.png)
 
 ---
 
@@ -257,7 +258,7 @@ Add a browser screenshot showing the same registered user or review after the st
 
 Add your full name as a clear caption directly below the screenshot.
 
-Add your screenshot here.
+![screenshot-17](screenshots/gideon-omole-as6-scr17.png)
 
 ---
 
@@ -277,13 +278,18 @@ Write a short explanation of 5–8 lines covering:
 - When a full reset is useful
 - Why a full reset must not be used before persistence evidence is captured
 
-Write your explanation here.
+`docker compose down` removes the stack's containers and the default network Compose created, but it keeps named volumes such as `mysql_data`.
+A named volume has its own lifecycle, separate from the containers, so the MySQL data files in `/var/lib/mysql` survive when the containers are deleted.
+Keeping the volume is the right choice when preserving MySQL data, because the next `docker compose up -d` creates a new MySQL container that mounts the same volume and finds the same tables, users and reviews.
+`docker compose down -v` also removes the named volumes, which permanently deletes the database files and every stored user and review, so MySQL starts again from an empty data directory.
+A full reset is useful in development when you want a clean database, such as wiping test or corrupted data, re-running seed scripts, or applying changed MySQL initialisation settings.
+A full reset must not be used before the persistence evidence is captured, because it would destroy the very data that proves the volume works.
 
 ---
 
 # Final Public Frontend URL
 
-**Frontend URL:** `http://<VM_PUBLIC_IP>:<FRONTEND_PORT>`
+**Frontend URL:** `http://3.229.22.123:3000/`
 
 Replace the placeholder with your working application URL.
 
@@ -291,7 +297,7 @@ Replace the placeholder with your working application URL.
 
 # GitHub Repository URL
 
-**Your Fork or Repository URL:** `Add your GitHub repository URL here`
+**Your Fork or Repository URL:** `https://github.com/Gideon-Omole/book-review-app`
 
 ---
 
@@ -303,11 +309,11 @@ Create a LinkedIn post about the Book Review App deployment and what you learned
 
 ### Evidence
 
-**LinkedIn Post URL:** `Add your LinkedIn post URL here`
+**LinkedIn Post URL:** `https://www.linkedin.com/posts/gideon-omole-5ba318180_docker-devops-aws-ugcPost-7513620673030832128-vwbb/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 #### LinkedIn Post Screenshot
 
-Add a screenshot of your published LinkedIn post here.
+![screenshot-18](screenshots/gideon-omole-as6-scr18.png)
 
 ---
 
