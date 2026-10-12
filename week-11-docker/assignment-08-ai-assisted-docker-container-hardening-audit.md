@@ -12,7 +12,7 @@ In this assignment, you will build a read-only Bash script that audits a running
 
 # Target Container
 
-**Target Container Name:** `Add the exact container name here`
+**Target Container Name:** `book-review-app-backend-1`
 
 ---
 
@@ -33,7 +33,7 @@ docker-audit.sh
 SKILL.md
 ```
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as8-scr1.png)
 
 ---
 
@@ -49,7 +49,7 @@ Add the supplied `docker-audit` skill to Claude Code and confirm that it is avai
 
 Add a screenshot of Claude Code showing `docker-audit` in the available skill list.
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as8-scr2.png)
 
 ---
 
@@ -70,7 +70,7 @@ Add a terminal screenshot showing:
 - Your full name
 - The usage message displayed when the script runs without a container name
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as8-scr3.png)
 
 ---
 
@@ -90,7 +90,7 @@ Add a terminal screenshot showing:
 - `docker ps`
 - The audit command using the selected target container name
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as8-scr4.png)
 
 ---
 
@@ -98,7 +98,7 @@ Add your screenshot here.
 
 Add a terminal screenshot showing the initial Docker audit results.
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as8-scr5.png)
 
 ---
 
@@ -119,7 +119,9 @@ Add a Claude Code screenshot showing:
 - Recommended manual fix
 - Verification method
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as8-scr6.png)
+![screenshot-6](screenshots/gideon-omole-as8-scr6.1.png)
+![screenshot-6](screenshots/gideon-omole-as8-scr6.2.png)
 
 ---
 
@@ -135,7 +137,7 @@ Manually fix one WARN or FAIL finding from the initial audit.
 
 Add a screenshot of the updated Dockerfile or `docker-compose.yml` showing the selected hardening fix.
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as8-scr7.png)
 
 ---
 
@@ -143,7 +145,7 @@ Add your screenshot here.
 
 Add a terminal screenshot showing your full name and the rebuilt or recreated service/container running successfully.
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as8-scr8.png)
 
 ---
 
@@ -163,7 +165,7 @@ Add a terminal screenshot showing:
 - The updated running container
 - The final audit report
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as8-scr9.png)
 
 ---
 
@@ -176,7 +178,20 @@ Write a short comparison covering:
 - Final audit result
 - Security benefit of the improvement
 
-Write your comparison here.
+Initial finding: The book-review-app-backend-1 container's Docker audit flagged [WARN] Container user, reporting that the container had no non-root user configured and was running as root.
+Change applied: backend/Dockerfile was updated to copy application files with explicit ownership and switch to an unprivileged user before the container's entrypoint runs:
+dockerfile
+
+         COPY --chown=node:node . .
+
+USER node
+
+The service was rebuilt and recreated in isolation with docker compose up -d --build --no-deps backend, so frontend and mysql were not restarted or affected.
+Final result: 
+Re-running the audit against the same container shows [PASS] Container user, with the report confirming "The container is configured to run as user: node." This was also verified directly with docker exec book-review-app-backend-1 whoami, which returned node.
+Security benefit: 
+The backend's Node.js process no longer runs with root privileges inside its container. If the application itself were ever compromised — for example, through a dependency vulnerability or an injection flaw — the attacker would only gain the privileges of the unprivileged node user, not root. This limits what they could do inside the container (such as installing packages, modifying system files, or escalating further) and reduces the potential impact of any container escape technique, since root-in-container is a meaningfully worse starting point than a standard user account.
+
 
 ---
 
@@ -188,13 +203,13 @@ Create a LinkedIn post about the container security checks you performed, one ha
 
 ### Evidence
 
-**LinkedIn Post URL:** `Add your LinkedIn post URL here`
+**LinkedIn Post URL:** `https://www.linkedin.com/posts/gideon-omole-5ba318180_docker-devsecops-containersecurity-ugcPost-7515393492810899456-OjHE/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4`
 
 #### LinkedIn Post Screenshot
 
 Add a screenshot of the published LinkedIn post, including the final audit result.
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as8-scr10.png)
 
 ---
 
