@@ -594,7 +594,7 @@ Optionally automate image build, image push, and deployment through GitHub Actio
 
 Add a screenshot showing a successful pipeline run with build, image push, deployment, and verification stages.
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as4-scr3.1.png)
 
 ---
 

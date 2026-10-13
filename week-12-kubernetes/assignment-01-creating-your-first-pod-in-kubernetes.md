@@ -20,7 +20,7 @@ Create a clean working directory for all Pod-related files used in this lab.
 
 #### Screenshot 01 — Output of `pwd` showing the current directory ending in `/k8s-labs/pods`
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as1-scr1.png)
 
 ---
 
@@ -34,13 +34,13 @@ Create an NGINX Pod directly from the command line, verify that it is running, a
 
 #### Screenshot 02 — Output of `kubectl run nginx-pod --image=nginx` showing the creation message, and `kubectl get pods` showing `nginx-pod` with `1/1` under `READY` and `Running` under `STATUS`, before deletion
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as1-scr2.png)
 
 ---
 
 #### Screenshot 03 — Output of `kubectl delete pod nginx-pod` showing the successful deletion message
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as1-scr3.png)
 
 ---
 
@@ -54,19 +54,19 @@ Define the NGINX Pod in a YAML file, apply the manifest, and verify the resultin
 
 #### Screenshot 04 — The filename `nginx-pod.yaml` and the complete YAML manifest with clear, readable indentation
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as1-scr4.png)
 
 ---
 
 #### Screenshot 05 — Output of `kubectl apply -f nginx-pod.yaml` showing the successful creation message
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as1-scr5.png)
 
 ---
 
 #### Screenshot 06 — Output of `kubectl get pods` showing the declarative `nginx-pod` with `1/1` under `READY` and `Running` under `STATUS`
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as1-scr6.png)
 
 ---
 
@@ -74,7 +74,19 @@ Add your screenshot here.
 
 **1. What is the difference between imperative and declarative Pod creation?**
 
-Add your answer here.
+Imperative creation means giving Kubernetes direct commands from the terminal, telling it exactly what to do right now. In this lab, `kubectl run nginx-pod --image=nginx` created the Pod in a single command. It is fast and useful for learning and quick tests, but it leaves no written record of what was requested, so it is harder to repeat, review or track in a real project.
+
+Declarative creation means writing the desired state in a YAML file (here, `nginx-pod.yaml`) and applying it with `kubectl apply -f nginx-pod.yaml`. Instead of telling Kubernetes what steps to take, you describe what you want ("a Pod named nginx-pod running the NGINX image") and Kubernetes works to make it true. Because the definition lives in a file, it can be version controlled, reused, shared and edited later, which is why this is the preferred method in production.
+
+| | Imperative | Declarative |
+|---|---|---|
+| Command | `kubectl run nginx-pod --image=nginx` | `kubectl apply -f nginx-pod.yaml` |
+| Approach | Tell Kubernetes what to do | Describe the desired end state |
+| Written record | None | YAML file |
+| Repeatable | Harder | Easy, re-apply the same file |
+| Best for | Learning, quick tests | Real projects and production |
+
+An important point about both methods is that a standalone Pod is not managed by anything. If it is deleted or crashes badly, nothing recreates it. Later labs introduce ReplicaSets and Deployments, which solve this.
 
 ---
 
@@ -88,13 +100,13 @@ Inspect the running Pod, view its logs, and open a shell inside the NGINX contai
 
 #### Screenshot 07 — Output of `kubectl describe pod nginx-pod` showing the Pod name, `app=nginx` label, `Running` status, container name, and NGINX image
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as1-scr7.png)
 
 ---
 
 #### Screenshot 08 — Output of `kFilename: `08-pod-logs.png`
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as1-scr8.png)
 
 If no logs appear, add a caption stating that the command completed without output.
 
@@ -102,7 +114,7 @@ If no logs appear, add a caption stating that the command completed without outp
 
 #### Screenshot 09 — Container shell opened using `kubectl exec -it nginx-pod -- /bin/bash`, showing `cd /usr/share/nginx/html`, `pwd`, and `ls -la`, with the directory path and default NGINX files visible before exiting
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as1-scr9.png)
 
 ---
 
