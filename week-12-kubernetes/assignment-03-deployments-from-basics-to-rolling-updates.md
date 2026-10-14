@@ -32,7 +32,7 @@ Create and enter the dedicated Deployment lab directory.
 
 #### Screenshot 01 — Output of `pwd` showing the directory ending in `/k8s-labs/deployments`
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as3-scr1.png)
 
 ---
 
@@ -46,13 +46,13 @@ Create a two-replica NGINX Deployment and verify the automatically managed Repli
 
 #### Screenshot 02 — Completed basic `nginx-deployment.yaml` showing two replicas and the initial NGINX image
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as3-scr2.png)
 
 ---
 
 #### Screenshot 03 — Successful apply output and verification output showing the Deployment, its automatically created ReplicaSet, and two Pods with `1/1` under `READY` and `Running` under `STATUS`
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as3-scr3.png)
 
 ---
 
@@ -66,13 +66,13 @@ Configure RollingUpdate to maintain the desired available replica count during a
 
 #### Screenshot 04 — Updated YAML showing `RollingUpdate`, `maxSurge: 1`, and `maxUnavailable: 0`
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as3-scr4.png)
 
 ---
 
 #### Screenshot 05 — Successful apply output and Deployment details showing the configured rolling-update strategy
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as3-scr5.png)
 
 ---
 
@@ -86,25 +86,25 @@ Update NGINX to 1.23.1, observe the rollout, and return to the previous stable r
 
 #### Screenshot 06 — Image-update command and rollout status showing successful completion
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as3-scr6.png)
 
 ---
 
 #### Screenshot 07 — ReplicaSet output showing the previous and updated ReplicaSets, and Deployment details showing `nginx:1.23.1`
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as3-scr7.png)
 
 ---
 
 #### Screenshot 08 — Rollback command and rollout status showing successful completion
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as3-scr8.png)
 
 ---
 
 #### Screenshot 09 — Rollout history and Deployment details showing the restored `nginx:1.21.1` image
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as3-scr9.png)
 
 ---
 
@@ -118,13 +118,13 @@ Scale the workload to five replicas and return it to two.
 
 #### Screenshot 10 — Scale-up command and output showing five Pods with `1/1` under `READY` and `Running` under `STATUS`
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as3-scr10.png)
 
 ---
 
 #### Screenshot 11 — Scale-down command and output showing the final two Pods with `1/1` under `READY` and `Running` under `STATUS`
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as3-scr11.png)
 
 ---
 
@@ -154,7 +154,7 @@ Today, I deployed NGINX, configured rolling updates, updated the container image
 
 I also scaled my Deployment from two Pods to five and back to two!
 
-[PASTE YOUR GENERATED LEADERBOARD MESSAGE AND LINK HERE]
+[I just completed 12/14 weeks of the DevOps Micro Internship — Cohort 3 · Live! � https://dmi.pravinmishra.com/s/Gideon-Omole.html?utm_source=dmi&utm_medium=share&utm_campaign=badge-share-hero-whatsapp]
 
 #DMIByPravinMishra #DevOps #Kubernetes
 
@@ -162,7 +162,7 @@ I also scaled my Deployment from two Pods to five and back to two!
 
 #### Screenshot 12 — Published WhatsApp Status showing your Kubernetes Deployment message and generated DMI leaderboard progress link
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as3-scr12.png)
 
 A draft or editing screen is not sufficient.
 
@@ -170,9 +170,15 @@ A draft or editing screen is not sufficient.
 
 # Lab Summary
 
-Write a short note explaining how Deployments manage ReplicaSets, perform rolling updates and rollbacks, and scale Pods.
+A Deployment is the controller that manages the full lifecycle of an application. It does not create Pods directly. Instead, it creates and manages ReplicaSets, and each ReplicaSet creates and maintains the Pods. In this lab, applying `nginx-deployment.yaml` created a Deployment, which automatically created a ReplicaSet, which in turn created two NGINX Pods. The Deployment holds the desired state (image, replica count, strategy), while the ReplicaSet handles self-healing by keeping the right number of Pods running.
 
-Add your answer here.
+**Rolling updates:** When the image was changed from `nginx:1.21.1` to `nginx:1.23.1` with `kubectl set image`, the Deployment created a new ReplicaSet for the new version and gradually replaced the old Pods. With `maxSurge: 1` and `maxUnavailable: 0`, the Deployment was allowed to add one extra Pod above the desired count while never dropping below two available Pods. A new Pod had to become ready before an old one was removed, so the application stayed available throughout the update. After the rollout, the old ReplicaSet was scaled down to 0 Pods but kept in the cluster, while the new ReplicaSet ran the two Pods. This differs from the Recreate strategy, which stops all old Pods before starting new ones and causes downtime.
+
+**Rollbacks:** Because the Deployment keeps the previous ReplicaSet, it stores a revision history. Running `kubectl rollout undo deployment/nginx-deployment` returned the Deployment to the earlier revision using `nginx:1.21.1`. The old ReplicaSet was scaled back up and the newer one was scaled down, using the same gradual process as the update. The `kubectl rollout history` output showed the revisions that were created by the update and the rollback.
+
+**Scaling:** Running `kubectl scale deployment nginx-deployment --replicas=5` changed the desired replica count, and the Deployment's ReplicaSet created three more Pods until five were running. Scaling back to two removed the extra Pods until only two remained. Scaling does not create a new revision because the Pod template does not change. One important note is that scaling with a command is temporary compared with the manifest. If the YAML file still says `replicas: 2` and is reapplied, the declarative state wins and the count returns to two.
+
+Overall, Deployments add rollout control, revision history and safe updates on top of the self-healing and scaling that ReplicaSets already provide, which is why they are the standard choice for stateless production workloads.
 
 ---
 
