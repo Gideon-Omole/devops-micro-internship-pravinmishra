@@ -34,7 +34,7 @@ Create and enter a dedicated directory for the auto-scaling lab.
 
 #### Screenshot 1 — Terminal showing that you are working inside `~/k8s-labs/autoscaling`
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as4-scr1.png)
 
 ---
 
@@ -42,13 +42,15 @@ Add your screenshot here.
 
 **1. What is the difference between auto-healing and auto-scaling?**
 
-Add your answer here.
+Auto-healing restores the desired number of Pods when one fails or is deleted. In Kubernetes, the ReplicaSet behind a Deployment keeps comparing the desired replica count with the number of matching Pods that actually exist, and creates a replacement whenever the count falls short. Auto-healing never changes the desired count, it only brings the actual count back to it.
+
+Auto-scaling changes the desired number of Pods itself in response to workload demand. When CPU usage rises, the Horizontal Pod Autoscaler (HPA) raises the Deployment's replica count, and when demand falls it lowers the count again. Auto-healing answers "a Pod was lost, replace it", while auto-scaling answers "demand changed, so how many Pods do we need?"
 
 ---
 
 **2. Which Kubernetes feature will you use for CPU-based auto-scaling?**
 
-Add your answer here.
+I will use the Horizontal Pod Autoscaler (HPA). It reads CPU usage from Metrics Server and compares the average utilization across the Pods with a target. In this lab the target is 50% of the CPU request (100m), and the HPA keeps `nginx-deployment` between 2 and 5 replicas. For this to work, the Pods must have CPU requests defined and Metrics Server must be running.
 
 ---
 
@@ -62,25 +64,25 @@ Create a Deployment with two replicas, delete one Pod, and observe Kubernetes cr
 
 #### Screenshot 2 — Completed `autohealing-deployment.yaml` manifest
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as4-scr2.png)
 
 ---
 
 #### Screenshot 3 — Output of `kubectl get pods` showing two running Pods before deletion
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as4-scr3.png)
 
 ---
 
 #### Screenshot 4 — Output of the `kubectl delete pod` command
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as4-scr4.png)
 
 ---
 
 #### Screenshot 5 — Output of `kubectl get pods` showing the replacement Pod and two running Pods
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as4-scr5.png)
 
 ---
 
@@ -88,19 +90,24 @@ Add your screenshot here.
 
 **1. What happened after you deleted one Pod?**
 
-Add your answer here.
+After I ran `kubectl delete pod <pod-name>`, the selected Pod briefly showed `Terminating` and was then removed. Almost immediately, Kubernetes created a new Pod to replace it. Within a few seconds the new Pod went through `ContainerCreating` and reached `1/1 Running`, so the `demo-autohealing` Deployment was back to two running Pods without any manual action from me.
 
 ---
 
 **2. What Kubernetes resource maintains the desired replica count for this Deployment?**
 
-Add your answer here.
+The ReplicaSet maintains the desired replica count. The `demo-autohealing` Deployment creates a ReplicaSet, and the ReplicaSet creates and manages the Pods. It runs a reconciliation loop that keeps comparing the desired count (2) with the number of matching Pods that exist. When I deleted one Pod, only one remained, so the ReplicaSet created a replacement from its Pod template. This is also why the Pod names follow the pattern `demo-autohealing-<replicaset-hash>-<random-suffix>`.
 
 ---
 
 **3. What proves that auto-healing worked?**
 
-Add your answer here.
+Two details in the second `kubectl get pods` output prove it:
+
+- The replacement Pod has a **different name** from the Pod I deleted, which shows it is a brand-new Pod and not the old one restarted.
+- The replacement Pod has an **AGE of only a few seconds**, while the untouched Pod keeps its original age.
+
+In addition, `kubectl get pods` shows two `demo-autohealing` Pods with `1/1 Running` again, so the desired count of 2 was restored automatically after the deletion.
 
 ---
 
@@ -114,13 +121,13 @@ Create a Deployment with CPU resource requests and limits so that HPA can calcul
 
 #### Screenshot 6 — Completed `hpa-deployment.yaml` manifest showing CPU requests and limits
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as4-scr6.png)
 
 ---
 
 #### Screenshot 7 — Output showing `nginx-deployment` and its running Pods
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as4-scr7.png)
 
 ---
 
@@ -128,19 +135,24 @@ Add your screenshot here.
 
 **1. What does `cpu: "100m"` mean?**
 
-Add your answer here.
+`100m` means 100 millicores, which is one tenth (0.1) of a single CPU core. In this lab it is the amount of CPU each NGINX container asks for.
 
 ---
 
 **2. What is the difference between a CPU request and a CPU limit?**
 
-Add your answer here.
+- **CPU request (`100m`):** the amount of CPU the container is guaranteed. Kubernetes uses it to decide which node has room for the Pod.
+- **CPU limit (`200m`):** the most CPU the container is allowed to use. If it tries to use more, Kubernetes slows it down (throttles it) but does not kill it.
+
+Example: this container is guaranteed 0.1 of a core and can never use more than 0.2 of a core.
 
 ---
 
 **3. Why does CPU-based HPA require CPU requests?**
 
-Add your answer here.
+The HPA measures CPU usage as a percentage, and it needs something to take that percentage of. The CPU request is that number. For example, if a Pod requests `100m` and is using `50m`, the HPA sees 50% utilization. The target in this lab is 50%, so the HPA compares that 50% with the target.
+
+Without a CPU request, there is nothing to calculate the percentage from, so the HPA shows `<unknown>` in the TARGETS column and cannot scale the Deployment.
 
 ---
 
@@ -154,7 +166,7 @@ Ensure the cluster can collect resource metrics for the HPA.
 
 #### Screenshot 8 — Output showing Metrics Server running, or `kubectl top pods` displaying Pod metrics
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as4-scr8.png)
 
 ---
 
@@ -162,19 +174,19 @@ Add your screenshot here.
 
 **1. Why does HPA need Metrics Server?**
 
-Add your answer here.
+The HPA needs to know how much CPU the Pods are actually using. Kubernetes does not measure this by itself. Metrics Server collects CPU and memory usage from the nodes and makes it available to the cluster. The HPA reads these numbers, compares them with its target (50% in this lab), and decides whether to add or remove Pods.
 
 ---
 
 **2. What issue can occur if Metrics Server is not working?**
 
-Add your answer here.
+The HPA cannot read CPU usage, so the TARGETS column in `kubectl get hpa` shows `<unknown>/50%`. The HPA then cannot make scaling decisions, so the Deployment will not scale up when the load rises or scale down when it falls. `kubectl top pods` will also fail with an error such as "Metrics API not available".
 
 ---
 
 **3. What does `kubectl top pods` help you check?**
 
-Add your answer here.
+It shows the current CPU (in millicores) and memory usage of each Pod. I use it to confirm that Metrics Server is working and that the cluster can collect metrics. If CPU and memory values appear for the `nginx-deployment` Pods, the HPA will be able to read them. If the command shows an error, the metrics are not ready yet and the HPA will not work.
 
 ---
 
@@ -188,13 +200,13 @@ Create an HPA that keeps at least two Pods running and can scale up to five Pods
 
 #### Screenshot 9 — The imperative command output OR completed `hpa-nginx.yaml` manifest
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as4-scr9.png)
 
 ---
 
 #### Screenshot 10 — Output of `kubectl get hpa` and the relevant `kubectl describe hpa` command
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as4-scr10.png)
 
 ---
 
@@ -202,25 +214,25 @@ Add your screenshot here.
 
 **1. What does `minReplicas: 2` mean?**
 
-Add your answer here.
+The HPA will never reduce the Deployment below 2 Pods, even when CPU usage is very low. This keeps at least two Pods running at all times.
 
 ---
 
 **2. What does `maxReplicas: 5` mean?**
 
-Add your answer here.
+The HPA will never increase the Deployment above 5 Pods, even when CPU usage is very high. This sets an upper limit so the Deployment cannot use up the cluster's resources.
 
 ---
 
 **3. What does `averageUtilization: 50` mean?**
 
-Add your answer here.
+The HPA tries to keep the average CPU usage across all the Pods at 50% of their CPU request. Each Pod requests `100m`, so 50% is about `50m` per Pod. If the average goes above 50%, the HPA adds Pods. If it stays well below 50%, the HPA removes Pods, down to the minimum of 2.
 
 ---
 
 **4. Why should only one HPA manage a Deployment at a time?**
 
-Add your answer here.
+Each HPA sets the replica count on its own. Two HPAs would each calculate a different number and keep overwriting each other's changes. The Deployment would then jump between replica counts and scaling would be unpredictable. One HPA gives a single, clear decision about how many Pods are needed.
 
 ---
 
@@ -234,41 +246,46 @@ Generate CPU load in one NGINX Pod and observe how HPA responds.
 
 If you skip this task, write “Not completed — optional” and leave the remaining Task 6 placeholders blank.
 
-Task status: Add your status here.
+Task status: Completed.
+
+I ran `yes > /dev/null` inside the Pod `nginx-deployment-5f8754f9d5-2pv78` and watched the HPA and the Pods in two other terminals.
 
 #### Screenshot 11 — Terminal showing the CPU-load command running inside the selected Pod
 
-Add your screenshot here if completed.
+![screenshot-11](screenshots/gideon-omole-as4-scr11.png)
 
 ---
 
 #### Screenshot 12 — Output of `kubectl get hpa` and `kubectl get pods` while HPA evaluates or changes the replica count
 
-Add your screenshot here if completed.
+![screenshot-12](screenshots/gideon-omole-as4-scr12.png)
 
 ---
 
 ### Notes
 
-Complete these answers only if you perform the optional test.
-
 **1. Did the HPA change the number of Pods? Explain what you observed.**
 
-Add your answer here.
+Yes. Before the load, `kubectl get hpa -w` showed `0%/50%` and `1%/50%` with 2 replicas. After I started the load, CPU utilization rose to `51%/50%` and then `100%/50%`. The HPA then increased the replicas from 2 to 4.
+
+`kubectl get pods -w` showed two new Pods go from `Pending` to `ContainerCreating` to `1/1 Running` in about 2 seconds. After the new Pods started, the average CPU dropped to between 40% and 50%, close to the target. The replica count stayed at 4 and did not reach the maximum of 5, because the average was no longer far above 50%. Later, the two extra Pods showed `Terminating`, so the Deployment went back down to 2 Pods after the load stopped.
+
+I did not run `kubectl scale`. The HPA made all of these changes by itself.
 
 ---
 
 **2. If scaling did not happen, what are two possible reasons?**
 
-Add your answer here, or write “Not applicable — scaling occurred.”
+Scaling did happen in my test. Two reasons it might not happen are:
+
+- **Metrics Server is not working.** The HPA cannot read CPU usage, so the TARGETS column shows `<unknown>` and no scaling decisions are made.
+- **The Deployment has no CPU request, or the load is too low.** Without a CPU request the HPA cannot calculate a percentage. If the load keeps average CPU below 50%, there is no reason to add Pods.
 
 ---
 
 **3. Why is automatic scale-down useful after traffic decreases?**
 
-Add your answer here.
-
----
+When traffic drops, the extra Pods are no longer needed. Removing them frees CPU and memory for other workloads and reduces cost. It also happens automatically, so nobody has to remember to scale the Deployment down by hand.
 
 # LinkedIn Requirement
 
@@ -276,11 +293,11 @@ Add your answer here.
 
 #### Screenshot 13 — Published LinkedIn post showing your name, the required explanation, and the attached Kubernetes screenshot
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as4-scr13.png)
 
 #### Linkedin Post Link
 
-Add your link here
+https://www.linkedin.com/posts/gideon-omole-5ba318180_kubernetes-devops-autoscaling-share-7516465651578720257-d8Pt/?rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4
 
 ---
 
