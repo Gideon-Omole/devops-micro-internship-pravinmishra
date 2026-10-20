@@ -20,21 +20,21 @@ Create a small AKS cluster for this lab, or connect to an existing approved AKS 
 
 #### Screenshot 1 — Output of `kubectl get nodes` showing ready AKS node(s)
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as9-scr1.png)
 
 ### Notes
 
 **1. Why does this lab use a cloud-capable Kubernetes environment such as AKS for the LoadBalancer Service?**
 
-Add your answer here.
+A LoadBalancer Service asks the cloud provider to create an external load balancer and public address. Local clusters (Minikube, kind) have no cloud controller to do that, so the external address would stay pending. EKS has the AWS integration built in.
 
 **2. What Azure resources can Kubernetes provision when a LoadBalancer Service is created?**
 
-Add your answer here.
+An AWS Elastic Load Balancer (by default a Classic Load Balancer with a DNS name ending in .elb.amazonaws.com), its listener on port 80, health checks and the security group rules that allow the traffic to reach the nodes.
 
 **3. Why is it important to delete unused AKS resources after the lab?**
 
-Add your answer here.
+The EKS control plane, the EC2 node, the NAT gateway and the load balancer are all billed by the hour while they exist, even when idle. Deleting the cluster removes them and avoids unexpected charges.
 
 ---
 
@@ -48,17 +48,17 @@ Create and enter a dedicated directory for the LoadBalancer Service manifests.
 
 #### Screenshot 2 — Terminal showing the output of `pwd` confirming that you are working inside `~/k8s-labs/services/loadbalancer`
 
-Add your screenshot here.
+![screenshot-2](screenshots/gideon-omole-as9-scr2.png)
 
 ### Notes
 
 **1. Why is it useful to keep Kubernetes manifests organized in dedicated directories?**
 
-Add your answer here.
+ It keeps related files together, makes them easy to find, version-control and reuse, avoids mixing labs, and makes team handover and cleanup simpler.
 
 **2. What are the names of the main Deployment and LoadBalancer Service YAML files you will create in this assignment?**
 
-Add your answer here.
+1. File names: 00-nginx-deploy.yaml (Deployment) and 01-nginx-svc-loadbalancer.yaml (LoadBalancer Service). A third patch file, 02-readiness-broken.yaml, is used in Task 5.
 
 ---
 
@@ -72,27 +72,27 @@ Create a healthy NGINX Deployment with readiness and liveness probes.
 
 #### Screenshot 3 — Completed `00-nginx-deploy.yaml` manifest
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as9-scr3.png)
 
 ---
 
 #### Screenshot 4 — Output showing successful rollout and two ready NGINX Pods
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as9-scr4.png)
 
 ### Notes
 
 **1. Why must Pods be ready before they should receive public traffic?**
 
-Add your answer here.
+A running container may still be starting, loading config or failing. Sending users to it would cause errors or timeouts. Readiness makes sure only Pods that can actually answer receive requests.
 
 **2. What is the role of the readiness probe in this Deployment?**
 
-Add your answer here.
+it calls GET / on port 80 every 5 seconds. While it fails, the Pod is marked not Ready and removed from the Service's ready endpoints. The container is not restarted.
 
 **3. What is the role of the liveness probe in this Deployment?**
 
-Add your answer here.
+it calls GET / every 10 seconds. If it fails 3 times in a row, the kubelet restarts the container, which recovers it from a hung or broken state.
 
 ---
 
@@ -106,37 +106,37 @@ Create a public LoadBalancer Service and verify that the NGINX application is re
 
 #### Screenshot 5 — Completed `01-nginx-svc-loadbalancer.yaml` manifest
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as9-scr5.png)
 
 ---
 
 #### Screenshot 6 — Output showing the Service with an assigned EXTERNAL-IP
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as9-scr6.png)
 
 ---
 
 #### Screenshot 7 — Successful curl output from the public IP
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as9-scr7.png)
 
 ### Notes
 
 **1. What does `type: LoadBalancer` instruct AKS to do?**
 
-Add your answer here.
+ It tells EKS to create an AWS load balancer with a public DNS name and rules forwarding the Service port into the cluster, so the app is reachable from the internet.
 
 **2. What public IP was assigned to your Service?**
 
-Add your answer here.
+The assigned address was a6b741874e0e747ddad5e76b88953b14-528156825.eu-north-1.elb.amazonaws.com. The assignment says IP; on AWS it is a DNS name.
 
 **3. How does the public request eventually reach the NGINX Pods?**
 
-Add your answer here.
+1. Request path: user, then the AWS load balancer hostname, then a worker node, then the Service (port 80), which selects ready endpoints with label app: nginx, then targetPort 80 of an NGINX Pod, which answers.
 
 **4. Why should you wait for EXTERNAL-IP before testing the Service?**
 
-Add your answer here.
+Until AWS finishes provisioning there is no public address, and right after it appears DNS and health checks need a minute, so earlier requests fail or time out.
 
 ---
 
@@ -150,43 +150,43 @@ Intentionally break readiness and observe how Kubernetes excludes unready Pods f
 
 #### Screenshot 8 — Completed `02-readiness-broken.yaml` patch file
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as9-scr8.png)
 
 ---
 
 #### Screenshot 9 — Output showing the expected incomplete rollout or readiness failure
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as9-scr9.png)
 
 ---
 
 #### Screenshot 10 — EndpointSlice output showing ready healthy backends and the effect of the readiness failure
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as9-scr10.png)
 
 ---
 
 #### Screenshot 11 — Successful public curl response after recovery
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as9-scr11.png)
 
 ### Notes
 
 **1. Why did the rollout not complete?**
 
-Add your answer here.
+The patched readiness probe checks /does-not-exist, which NGINX answers with 404. The new Pod never became Ready, so the Deployment could not finish replacing the old Pods.
 
 **2. Why can the public endpoint still work while new Pods fail readiness?**
 
-Add your answer here.
+maxUnavailable: 0 stops Kubernetes from removing old Pods until a new one is Ready. The two old, healthy Pods stay in the Service endpoints and keep answering requests.
 
 **3. What would happen if Kubernetes routed traffic to Pods before they were ready?**
 
-Add your answer here.
+Users would get errors, timeouts or incomplete responses during startup or failure, causing downtime on every deployment.
 
 **4. How did you restore the Deployment successfully?**
 
-Add your answer here.
+I reapplied the original manifest with kubectl apply -f 00-nginx-deploy.yaml, which put back the correct readiness probe (/), waited for rollout status, and verified two ready Pods, ready endpoints and a working curl.
 
 ---
 
@@ -200,27 +200,27 @@ Scale the NGINX Deployment and confirm that more ready Pods become available beh
 
 #### Screenshot 12 — Two ready NGINX Pods verified initially; four ready Pods verified after scaling
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as9-scr12.png)
 
 ---
 
 #### Screenshot 13 — Successful public curl response after scaling
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as9-scr13.png)
 
 ### Notes
 
 **1. What changed after scaling the Deployment from two to four replicas?**
 
-Add your answer here.
+The Deployment now runs four Pods instead of two, and the Service has four ready endpoints to share traffic.
 
 **2. Did the public IP change after scaling? Explain why or why not.**
 
-Add your answer here.
+No. The hostname belongs to the Service and the AWS load balancer, not to individual Pods. Scaling only changes the backends behind it.
 
 **3. Why does scaling behind a LoadBalancer Service not require users to change the URL or IP they use?**
 
-Add your answer here.
+Clients talk to the stable Service IP; the Service selector automatically picks up new Pods that match app: nginx and are ready, so scaling is invisible to users.
 
 ---
 
@@ -234,11 +234,11 @@ Share what you learned about exposing an NGINX application publicly through a Lo
 
 #### Screenshot 14 — Published LinkedIn post about your LoadBalancer lab on AKS
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as9-scr14.png)
 
 #### LinkedIn post link
 
-Add your link here.
+[Add your link here.](https://www.linkedin.com/posts/gideon-omole-5ba318180_kubernetes-devops-eks-ugcPost-7518294439585366016-p1G4/?rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4)
 
 ---
 
