@@ -12,19 +12,19 @@ Deploy the Book Review App as a production-style three-tier application using Ku
 
 ## Submission Details
 
-**Full Name:** Add your full name here.
+**Full Name:** Gideon Omole
 
-**Kubernetes Platform:** Add your platform here.
+**Kubernetes Platform:** Amazon EKS
 
 **Namespace:** book-review
 
-**Frontend URL or IP:** Add the working endpoint here.
+**Frontend URL or IP:** http://ae260b588b6974050ac42d0d0c327efb-1491935220.eu-north-1.elb.amazonaws.com
 
-**Access Method:** Public LoadBalancer, Ingress, or documented local access.
+**Access Method:** Public LoadBalancer
 
-**GitHub Manifests or Helm Chart URL:** Add your repository link here.
+**GitHub Manifests or Helm Chart URL:** https://github.com/Gideon-Omole/book-review-k8s
 
-**Architecture Diagram:** Add your diagram or link here.
+**Architecture Diagram:** ![screenshot-3](screenshots/gideon-omole-as10-scr3.jpg)
 
 ---
 
@@ -38,7 +38,7 @@ Prepare the cluster, application source, container images, and tooling needed fo
 
 #### Screenshot 1 — Active Kubernetes context and Ready nodes
 
-Add your screenshot here.
+![screenshot-1](screenshots/gideon-omole-as10-scr1.png)
 
 ---
 
@@ -46,7 +46,7 @@ Add your screenshot here.
 
 Required only if you choose Helm. Skip this screenshot if using YAML manifests.
 
-Add your screenshot here, or write “Not applicable — using YAML manifests.”
+Not applicable — using YAML manifests
 
 ---
 
@@ -60,7 +60,7 @@ Document the workloads, networking, configuration, storage, and permitted commun
 
 #### Screenshot 3 — Completed Kubernetes architecture diagram
 
-Add your screenshot here.
+![screenshot-3](screenshots/gideon-omole-as10-scr3.jpg)
 
 ---
 
@@ -74,13 +74,13 @@ Provide application configuration and credentials without embedding sensitive va
 
 #### Screenshot 4 — ConfigMap configuration or describe output showing non-sensitive values
 
-Add your screenshot here.
+![screenshot-4](screenshots/gideon-omole-as10-scr4.png)
 
 ---
 
 #### Screenshot 5 — Secret references or describe output showing names and keys without sensitive values
 
-Add your screenshot here.
+![screenshot-5](screenshots/gideon-omole-as10-scr5.png)
 
 ---
 
@@ -94,13 +94,13 @@ Provide persistent MySQL storage and allow the backend to connect without exposi
 
 #### Screenshot 6 — Managed MySQL status or MySQL StatefulSet and PVC status
 
-Add your screenshot here.
+![screenshot-6](screenshots/gideon-omole-as10-scr6.png)
 
 ---
 
 #### Screenshot 7 — Successful database connectivity or schema verification with credentials hidden
 
-Add your screenshot here.
+![screenshot-7](screenshots/gideon-omole-as10-scr7.png)
 
 ---
 
@@ -114,7 +114,7 @@ Run one or two Node.js/Express backend replicas on port 3001 and expose them thr
 
 #### Screenshot 8 — Backend Deployment, ready Pods, and internal Service
 
-Add your screenshot here.
+![screenshot-8](screenshots/gideon-omole-as1-scr8.png)
 
 ---
 
@@ -122,7 +122,8 @@ Add your screenshot here.
 
 If the application does not log successful database connections, provide a successful database-backed request alongside the startup logs.
 
-Add your screenshot here.
+![screenshot-9](screenshots/gideon-omole-as10-scr9.png)
+![screenshot-9](screenshots/gideon-omole-as10-scr9.1.png)
 
 ---
 
@@ -136,13 +137,13 @@ Run the Next.js frontend behind Nginx on port 80 and proxy API requests to the i
 
 #### Screenshot 10 — Frontend Deployment and Ready Pods
 
-Add your screenshot here.
+![screenshot-10](screenshots/gideon-omole-as10-scr10.png)
 
 ---
 
 #### Screenshot 11 — Nginx reverse-proxy configuration showing the internal backend Service name and port 3001
 
-Add your screenshot here.
+![screenshot-11](screenshots/gideon-omole-as10-scr11.png)
 
 ---
 
@@ -156,13 +157,13 @@ Expose the frontend and enforce the intended communication path between applicat
 
 #### Screenshot 12 — Frontend LoadBalancer or Ingress configuration and assigned endpoint, or documented local access method
 
-Add your screenshot here.
+![screenshot-12](screenshots/gideon-omole-as10-scr12.png)
 
 ---
 
 #### Screenshot 13 — Internal backend Service and NetworkPolicy or equivalent restriction, with access-test evidence
 
-Add your screenshot here.
+![screenshot-13](screenshots/gideon-omole-as10-scr13.png)
 
 ---
 
@@ -176,31 +177,31 @@ Prove that the frontend, backend, and MySQL database work together and collect o
 
 #### Screenshot 14 — `kubectl get all` output for the book-review namespace
 
-Add your screenshot here.
+![screenshot-14](screenshots/gideon-omole-as10-scr14.png)
 
 ---
 
 #### Screenshot 15 — Functional Book Review App in the browser with the URL visible, including evidence of a successful user flow
 
-Add your screenshot here.
+![screenshot-15](screenshots/gideon-omole-as10-scr15.png)
 
 ---
 
 #### Screenshot 16 — Frontend or Nginx container logs
 
-Add your screenshot here.
+![screenshot-16](screenshots/gideon-omole-as10-scr16.png)
 
 ---
 
 #### Screenshot 17 — Backend logs and evidence of a successful database-backed operation
 
-Add your screenshot here.
+![screenshot-17](screenshots/gideon-omole-as10-scr17.png)
 
 ---
 
 #### Screenshot 18 — Optional: Kubernetes dashboard
 
-Add your screenshot here, or write “Not attempted.”
+![screenshot-18](screenshots/gideon-omole-as10-scr18.png)
 
 Multiple images may be included under a screenshot number when needed to demonstrate the complete user flow.
 
@@ -216,7 +217,7 @@ Add selected improvements without breaking the required three-tier architecture.
 
 #### Screenshot 19 — Optional: Evidence of selected Helm, HPA, probe, or TLS improvements
 
-Add your screenshot here, or write “Not attempted.”
+![screenshot-19](screenshots/gideon-omole-as10-scr19.png)
 
 ---
 
@@ -230,11 +231,11 @@ Explain your three-tier architecture, demonstrate the working application, and s
 
 #### Screenshot 20 — Published LinkedIn post about your Book Review App deployment on Kubernetes
 
-Add your screenshot here.
+![screenshot-20](screenshots/gideon-omole-as10-scr20.png)
 
 ### LinkedIn Post URL
 
-Add your published LinkedIn post URL here.
+[Add your published LinkedIn post URL here.](https://www.linkedin.com/posts/gideon-omole-5ba318180_kubernetes-devops-ugcPost-7518678141289295872-ZVQw/?rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4)
 
 ---
 
@@ -242,33 +243,49 @@ Add your published LinkedIn post URL here.
 
 ## What Worked
 
-Describe the application components and user flows you successfully deployed and tested.
+I deployed the Book Review App as a three-tier application on Amazon EKS (eu-north-1) in the `book-review` namespace. Docker Hub images (`giddyvibes/book-review-backend:v1` and `giddyvibes/book-review-frontend:v1`) were built from the app repo and used by the cluster.
 
-Add your summary here.
+- **Database:** MySQL runs as a StatefulSet with a 5 GiB EBS gp3 volume, provisioned through the EBS CSI driver and a `ebs-gp3` StorageClass. A headless Service exposes it internally. I proved persistence by deleting `mysql-0` and confirming the test row and later my review survived.
+- **Backend:** Node.js/Express runs on port 3001 (set with `PORT` in a ConfigMap) behind an internal ClusterIP Service, `backend-service`. It reads non-sensitive settings from the `backend-config` ConfigMap and credentials from the `book-review-secret` Secret. It created its tables and sample data at startup and served a database-backed `/api/books` response. After the first Pod loaded the data, I scaled it to two replicas.
+- **Frontend:** Each of the two frontend Pods runs Next.js on port 3000 with an Nginx sidecar on port 80. Nginx proxies `/api/` and `/api/api/` to `backend-service:3001`, so the browser only talks to one public address.
+- **Networking:** Only `frontend-service` (type LoadBalancer) is public. NetworkPolicies allow only `tier: frontend` Pods to reach the backend on 3001 and only `tier: backend` Pods to reach MySQL on 3306. Allowed requests returned 200, and denied requests timed out.
+- **End-to-end test:** In the browser I opened the home page, viewed a book, registered a test user, logged in, posted a review and refreshed to confirm it persisted. I confirmed the review row in MySQL. I then restarted the backend and deleted the MySQL Pod, and the review survived.
+- **Security practice:** Real Secret values stayed outside the Git folder. Only a placeholder `02-secret.example.yaml` is committed, and no account ID or kubeconfig appears in the evidence.
 
 ## Issues and Fixes
 
-Describe the main issues encountered, their causes, and how you resolved them.
-
-Add your summary here.
+- **Commands that lost their variables (cluster name, region, account ID, MySQL user):** The shell did not expand them. I re-set the variables in the terminal and retyped the commands.
+- **No EBS storage for the StatefulSet:** The cluster needed the EBS CSI driver add-on and an IAM role. I associated the OIDC provider, created the `AmazonEKS_EBS_CSI_DriverRole` role and installed the add-on.
+- **Small node running out of memory:** Pods could stay Pending on the single node. I reduced replicas where needed and set `maxSurge: 0` so rolling updates stop the old Pod before starting a new one.
+- **NetworkPolicy had no effect at first:** Enforcement was not enabled. I turned on `enableNetworkPolicy` for the VPC CNI add-on and confirmed `aws-node` showed 2/2.
+- **Backend defaulted to port 5000:** I fixed it by setting `PORT=3001` in the ConfigMap.
+- **Home page requested `/api/api/books`:** I added a second Nginx location so both `/api/` and `/api/api/` reach the backend.
+- **Duplicate `resources:` key when adding probes:** While editing `05-backend-deployment.yaml`, a stray extra `resources:` line was left in the container spec, which is invalid YAML. I rewrote both Deployment files in full with the probes in the correct place, checked with `grep -c 'resources:'`, and applied them.
+- **EKS console "Unauthorized" on the Resources tab:** The console could not show Kubernetes resources even though an access entry with admin policies existed for `user/Gideon`, and kubectl worked from the CLI as the same user. [Describe what fixed it, or write that I used terminal views instead.]
+- **k9s install on WSL:** `snap install k9s` reported success, but no binary was created. [Describe the fix, for example installing the k9s binary directly from the GitHub release, or write that I used `kubectl get` output as the dashboard evidence.]
 
 ## Tools and Sources Used
 
-List the documentation and tools that helped you complete the assignment.
-
-Add your tools and sources here.
+- Amazon EKS, `eksctl`, AWS CLI v2, `kubectl`
+- Docker and Docker Hub
+- Kubernetes: Deployments, StatefulSets, Services, ConfigMaps, Secrets, NetworkPolicies, PersistentVolumeClaims
+- AWS EBS CSI driver and VPC CNI add-ons
+- Nginx and Next.js; Node.js/Express and MySQL 8.0
+- draw.io for the architecture diagram
+- [k9s or the EKS console for the dashboard view]
+- The assignment step-by-step guide and the `book-review-app` repository
+- The Kubernetes and AWS EKS documentation
+- Claude (Anthropic) for step-by-step guidance and troubleshooting
 
 ## Optional Improvements
 
-Describe any optional improvements implemented, or write “Not attempted.”
-
-Add your summary here.
+- **Liveness and readiness probes:** I added liveness probes to the backend (port 3001), the Next.js container (port 3000, with a matching readiness probe) and a `tcpSocket` liveness probe to Nginx on port 80. I used long initial delays and verified with `kubectl describe deployment`. All Pods stayed at 0 restarts.
+- **Dashboard view (Screenshot 18):** [Describe what you captured, or write "Not completed".]
+- **Helm (Screenshot 2):** Not attempted. I used plain Kubernetes manifests.
 
 ## Cleanup or Reuse Plan
 
-State which resources were removed or why the environment is being retained.
-
-Add your cleanup status or reuse plan here.
+- **Cleaned up:** After capturing all evidence, I deleted `frontend-service` and the `book-review` namespace (removing the load balancer and EBS volume), and [deleted the cluster with `eksctl delete cluster`]. I checked EC2 Load Balancers, EC2 Volumes and CloudFormation for leftovers and removed the `AmazonEKS_EBS_CSI_DriverRole` IAM role. The Docker Hub images remain.
 
 ---
 
