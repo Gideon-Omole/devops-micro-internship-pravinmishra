@@ -22,7 +22,7 @@ Deploy the Book Review App as a production-style three-tier application using Ku
 
 **Access Method:** Public LoadBalancer
 
-**GitHub Manifests or Helm Chart URL:** https://github.com/Gideon-Omole/book-review-k8s
+**GitHub Manifests or Helm Chart URL:** https://github.com/Gideon-Omole/book-review-app
 
 **Architecture Diagram:** ![screenshot-3](screenshots/gideon-omole-as10-scr3.jpg)
 
@@ -235,7 +235,7 @@ Explain your three-tier architecture, demonstrate the working application, and s
 
 ### LinkedIn Post URL
 
-[Add your published LinkedIn post URL here.](https://www.linkedin.com/posts/gideon-omole-5ba318180_kubernetes-devops-ugcPost-7518678141289295872-ZVQw/?rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4)
+https://www.linkedin.com/posts/gideon-omole-5ba318180_kubernetes-devops-ugcPost-7518678141289295872-ZVQw/?rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4
 
 ---
 

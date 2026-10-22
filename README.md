@@ -142,7 +142,7 @@ Week 10 → Azure DevOps CI/CD
 | 09 | Ansible | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_devops-terraform-ansible-ugcPost-7506318740800602112-9JzC/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/building-a-devops-workflow-with-ansible-and-terraform-six-projects-start-to-finish-acff659854ca |
 | 10 | Azure DevOps (CI/CD) | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_azuredevops-terraform-ansible-ugcPost-7509582278201589760-vQcN/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/i-built-a-ci-cd-pipeline-from-scratch-heres-what-i-learned-1761e35dda5f |
 | 11 | Docker | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_docker-devops-aws-ugcPost-7514328082795790336-hBf9/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/my-docker-journey-from-one-container-to-a-live-production-stack-202cd4810a76 |
-| 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
+| 12 | Kubernetes | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/gideon-omole-5ba318180_kubernetes-devops-ugcPost-7518678141289295872-ZVQw/?rcm=ACoAACrC7l4BK-z0pGwSRQMO8ZJ5pFZyqybbIk4 | https://medium.com/@gideonomole9/i-learned-kubernetes-by-breaking-things-on-aws-11-hands-on-projects-e3e2708fa69d |
 | 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |
 
 **Status:** ⬜ Not Started &nbsp;|&nbsp; 🔄 In Progress &nbsp;|&nbsp; ✅ Completed<br>
